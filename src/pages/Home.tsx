@@ -1,18 +1,12 @@
-import React from "react";
+import HomeHeader from "../components/HomeHeader";
+import HomeCategories from "../components/HomeCategories";
 
 const Home: React.FC = () => {
   return (
-    <>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1> <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-      <h1>Home</h1>
-    </>
+    <div>
+      <HomeHeader />
+      <HomeCategories />
+    </div>
   );
 };
 
