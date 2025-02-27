@@ -3,28 +3,33 @@ import Headphones from "/images/cart/image-xx99-mark-one-headphones.jpg";
 import ShopAddress from "./ShopAddress";
 import Speaker from "/images/cart/image-zx9-speaker.jpg";
 import Earphones from "/images/cart/image-yx1-earphones.jpg";
+import {
+  CategoriesContainer,
+  CategoryContainer,
+  Title,
+} from "./HomeCategoriesStyles";
 
 const HomeCategories: React.FC = () => {
   return (
-    <>
-      <nav>
-        <div>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <CategoriesContainer>
+        <CategoryContainer>
           <img src={Headphones} alt="Headphones" />
-          <h4>HEADPHONES</h4>
+          <Title>HEADPHONES</Title>
           <ShopAddress />
-        </div>
-        <div>
+        </CategoryContainer>
+        <CategoryContainer>
           <img src={Speaker} alt="Speaker" />
-          <h4>SPEAKERS</h4>
+          <Title>SPEAKERS</Title>
           <ShopAddress />
-        </div>
-        <div>
+        </CategoryContainer>
+        <CategoryContainer>
           <img src={Earphones} alt="Earphones" />
-          <h4>EARPHONES</h4>
+          <Title>EARPHONES</Title>
           <ShopAddress />
-        </div>
-      </nav>
-    </>
+        </CategoryContainer>
+      </CategoriesContainer>
+    </div>
   );
 };
 
