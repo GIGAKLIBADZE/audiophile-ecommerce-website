@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchInformation } from "../features/data/dataSlice";
 import { AppDispatch, RootState } from "../store";
 import { useEffect } from "react";
-import HomeSpeaker from "../components/HomeSpeaker";
+import HomeProducts from "../components/HomeProducts";
 
 const Home: React.FC = () => {
   const data = useSelector((store: RootState) => store.fetchedInformation.info);
@@ -18,7 +18,7 @@ const Home: React.FC = () => {
     <div>
       <HomeHeader />
       <HomeCategories data={data} />
-      <HomeSpeaker data={data} />
+      <HomeProducts data={data} />
     </div>
   );
 };
