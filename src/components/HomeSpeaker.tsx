@@ -17,6 +17,14 @@ const HomeSpeaker: React.FC<{ data: any }> = ({ data }) => {
           style={{ width: "4rem", height: "4rem" }}
         />
       </div>
+      <div>
+        <h5>ZX9 SPEAKER</h5>
+        <p>
+          Upgrade to premium speakers that are phenomenally built to deliver
+          truly remarkable sound.
+        </p>
+        <button>SEE PRODUCT</button>
+      </div>
     </div>
   );
 };
