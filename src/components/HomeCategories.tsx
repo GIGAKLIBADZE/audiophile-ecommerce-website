@@ -1,15 +1,19 @@
 import React from "react";
-import Headphones from "/images/cart/image-xx99-mark-one-headphones.jpg";
 import ShopAddress from "./ShopAddress";
-import Speaker from "/images/cart/image-zx9-speaker.jpg";
-import Earphones from "/images/cart/image-yx1-earphones.jpg";
+import Headphones from "/downloaded/category-headphones.png";
+import Speaker from "/downloaded/category-speaker.png";
+import Earphones from "/downloaded/category-earphones.png";
 import {
   CategoriesContainer,
   CategoryContainer,
   Title,
 } from "./HomeCategoriesStyles";
 
-const HomeCategories: React.FC = () => {
+const HomeCategories: React.FC<{ data: any }> = ({ data }) => {
+  if (!data || !data[0] || !data[0].others || !data[2].others) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <CategoriesContainer>
