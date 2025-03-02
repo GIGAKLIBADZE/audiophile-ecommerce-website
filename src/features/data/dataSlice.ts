@@ -2,28 +2,30 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppDispatch } from "../../store";
 
 const initialState = {
-    data: ""
+    info: ""
 }
 
 const dataSlice = createSlice({
     name: "data",
     initialState,
     reducers: {
-        receiveData(state, action: PayloadAction<string>) {
-            state.data = action.payload
+        getInformation(state, action: PayloadAction<any>) {
+            state.info = action.payload
         }
     }
 })
 
-export function getInformation() {
+export function fetchInformation() {
     return async function(dispatch: AppDispatch) {
-    const receiveData = fetch("/data.json")
-        .then((response) => response.json())
-        .catch((error) => console.log(error));
-        
-        dispatch({type: "data/access", payload: receiveData})
+        try {
+            const response = await fetch("./data.json")
+            const data = response.json();
+            dispatch(getInformation(await data));
+        } catch(error) {
+            console.log(error)
+        }
     } 
 }
 
-// export const { receiveData } = dataSlice.actions;
+export const { getInformation } = dataSlice.actions;
 export default dataSlice.reducer;
