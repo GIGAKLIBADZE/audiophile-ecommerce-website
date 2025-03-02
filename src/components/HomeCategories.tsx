@@ -10,7 +10,7 @@ import {
 } from "./HomeCategoriesStyles";
 
 const HomeCategories: React.FC<{ data: any }> = ({ data }) => {
-  if (!data || !data[0] || !data[0].others || !data[2].others) {
+  if (!data || !data[0] || !data[5].categoryImage.mobile || !data[2].others) {
     return <div>Loading...</div>;
   }
 
