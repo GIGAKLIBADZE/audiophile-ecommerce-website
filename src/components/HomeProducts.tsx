@@ -3,6 +3,15 @@ import SampleProduct from "/images/home/mobile/image-speaker-zx7.jpg";
 import SampleProduct2 from "/images/home/mobile/image-earphones-yx1.jpg";
 
 const HomeProducts: React.FC<{ data: any }> = ({ data }) => {
+  if (
+    !data ||
+    !data[5] ||
+    !data[5].categoryImage ||
+    !data[5].categoryImage.mobile
+  ) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <div style={{ backgroundColor: "orange", height: "10rem" }}>

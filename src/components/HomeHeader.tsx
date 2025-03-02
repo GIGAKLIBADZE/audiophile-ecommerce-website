@@ -1,5 +1,7 @@
 import React from "react";
-import { HeaderContainer, HeaderImage } from "./HomeStyles";
+// import { HeaderContainer, HeaderImage } from "./HomeStyles";
+import { HeaderContainer } from "./HeaderLayoutStyles";
+import { HeaderImage } from "./HomeStyles";
 
 const HomeHeader: React.FC = () => {
   return (
