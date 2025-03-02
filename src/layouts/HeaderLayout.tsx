@@ -1,7 +1,7 @@
 import Burger from "/images/shared/tablet/icon-hamburger.svg";
 import Title from "/images/shared/desktop/logo.svg";
 import Basket from "/images/shared/desktop/icon-cart.svg";
-import { HeaderContainer, Line } from "../components/HeaderLayoutStyles";
+import { HeaderContainer, Line } from "../components/home/HeaderLayoutStyles";
 
 const HeaderLayout: React.FC = () => {
   return (

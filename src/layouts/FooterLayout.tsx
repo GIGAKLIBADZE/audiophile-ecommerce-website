@@ -9,7 +9,7 @@ import {
   // FooterInfoContainer,
   FooterMenu,
   SocialMediaContainer,
-} from "../components/FooterLayoutStyles";
+} from "../components/home/FooterLayoutStyles";
 
 const FooterLayout: React.FC = () => {
   return (

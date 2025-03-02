@@ -1,13 +1,13 @@
-import HomeHeader from "../components/HomeHeader";
+import HomeHeader from "../components/home/HomeHeader";
 // import HomeCategories from "../components/home/HomeCategories";
 // import HomeCategories from "../components/HomeCategories";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchInformation } from "../features/data/dataSlice";
 import { AppDispatch, RootState } from "../store";
 import { useEffect } from "react";
-import HomeProducts from "../components/HomeProducts";
-import HomeFooter from "../components/HomeFooter";
-import HomeCategories from "../components/HomeCategories";
+import HomeProducts from "../components/home/HomeProducts";
+import HomeFooter from "../components/home/HomeFooter";
+import HomeCategories from "../components/home/HomeCategories";
 
 const Home: React.FC = () => {
   const data = useSelector((store: RootState) => store.fetchedInformation.info);
