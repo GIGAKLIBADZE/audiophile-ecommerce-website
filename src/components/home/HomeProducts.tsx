@@ -11,11 +11,15 @@ import {
   FirstProductBtn,
   MainContainer,
   ProductContainer,
+  SecondAndThirdProductBtn,
+  SecondAndThirdProductText,
   SecondImage,
   SecondImageContainer,
-  SecondProductBtn,
   SecondProductContainer,
-  SecondProductText,
+  ThirdImage,
+  ThirdImageContainer,
+  ThirdProductContainer,
+  ThirdProductTextsContainer,
 } from "./HomeProductsStyles";
 import { AboutProduct, ProductName } from "./HomeHeaderStyles";
 
@@ -52,23 +56,22 @@ const HomeProducts: React.FC<{ data: any }> = ({ data }) => {
       </ProductContainer>
       <SecondProductContainer>
         <AboutSecondProductContainer>
-          <SecondProductText>ZX7 SPEAKER</SecondProductText>
-          <SecondProductBtn>SEE PRODUCT</SecondProductBtn>
+          <SecondAndThirdProductText>ZX7 SPEAKER</SecondAndThirdProductText>
+          <SecondAndThirdProductBtn>SEE PRODUCT</SecondAndThirdProductBtn>
         </AboutSecondProductContainer>
         <SecondImageContainer>
           <SecondImage src={SampleProduct} />
         </SecondImageContainer>
       </SecondProductContainer>
-
-      <div>
-        <div>
-          <img src={SampleProduct2} style={{ width: "4rem", height: "4rem" }} />
-        </div>
-        <div>
-          <h5>YX1 EARPHONES</h5>
-          <button>SEE PRODUCT</button>
-        </div>
-      </div>
+      <ThirdProductContainer>
+        <ThirdImageContainer>
+          <ThirdImage src={SampleProduct2} />
+        </ThirdImageContainer>
+        <ThirdProductTextsContainer>
+          <SecondAndThirdProductText>YX1 EARPHONES</SecondAndThirdProductText>
+          <SecondAndThirdProductBtn>SEE PRODUCT</SecondAndThirdProductBtn>
+        </ThirdProductTextsContainer>
+      </ThirdProductContainer>
     </MainContainer>
   );
 };

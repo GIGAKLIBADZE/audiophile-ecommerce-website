@@ -77,7 +77,7 @@ export const SecondImage = styled.img`
   border-radius: 8px;
 `;
 
-export const SecondProductText = styled.h5`
+export const SecondAndThirdProductText = styled.h5`
   font-size: 2.8rem;
   font-weight: bold;
   line-height: normal;
@@ -85,7 +85,7 @@ export const SecondProductText = styled.h5`
   color: #000;
 `;
 
-export const SecondProductBtn = styled.button`
+export const SecondAndThirdProductBtn = styled.button`
   width: 16rem;
   height: 4.8rem;
   border: solid 0.1rem #000;
@@ -103,4 +103,28 @@ export const AboutSecondProductContainer = styled.div`
   z-index: 1;
   top: 10.1rem;
   left: 2.4rem;
+`;
+
+export const ThirdProductContainer = styled.div`
+  width: 87.2%;
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+`;
+
+export const ThirdImageContainer = styled.div`
+  margin-inline: auto;
+`;
+
+export const ThirdImage = styled.img`
+  width: 100%;
+  border-radius: 8px;
+`;
+
+export const ThirdProductTextsContainer = styled.div`
+  width: 100%;
+  border-radius: 8px;
+  padding: 4.1rem 5.6rem 4.1rem 2.4rem;
+  background-color: #f1f1f1;
+  margin-top: 2.4rem;
 `;
