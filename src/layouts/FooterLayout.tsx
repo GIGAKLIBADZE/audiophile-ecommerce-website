@@ -3,36 +3,39 @@ import Facebook from "/images/shared/desktop/icon-facebook.svg";
 import Instagram from "/images/shared/desktop/icon-instagram.svg";
 import Twitter from "/images/shared/desktop/icon-twitter.svg";
 import {
-  FooterContainer,
+  FooterSecondContainer,
   FooterInfo,
   FooterInfoAndSocialMediaContainer,
   FooterMenu,
   SocialMediaContainer,
+  ImageContainer,
+  Image,
+  Ad,
+  AdLight,
+  Description,
 } from "../components/home/FooterLayoutStyles";
 import BestGear from "/images/shared/mobile/image-best-gear.jpg";
 
 const FooterLayout: React.FC = () => {
   return (
     <div>
+      <ImageContainer>
+        <Image src={BestGear} alt="Best gear" />
+      </ImageContainer>
       <div>
-        <img
-          src={BestGear}
-          alt="Best gear"
-          style={{ width: "4rem", height: "4rem" }}
-        />
-      </div>
-      <div>
-        <h4>Bringing you the best audio gear</h4>
-        <p>
+        <Ad>
+          BRINGING YOU THE <AdLight>BEST</AdLight> AUDIO GEAR
+        </Ad>
+        <Description>
           Located at the heart of New York City, Audiophile is the premier store
           for high end headphones, earphones, speakers, and audio accessories.
           We have a large showroom and luxury demonstration rooms available for
           you to browse and experience a wide range of our products. Stop by our
           store to meet some of the fantastic people who make Audiophile the
           best place to buy your portable audio equipment.
-        </p>
+        </Description>
       </div>
-      <FooterContainer>
+      <FooterSecondContainer>
         <div>
           <img src={Title} alt="Title" />
           <FooterMenu>
@@ -60,7 +63,7 @@ const FooterLayout: React.FC = () => {
             <img src={Twitter} alt="Twitter icon" />
           </SocialMediaContainer>
         </FooterInfoAndSocialMediaContainer>
-      </FooterContainer>
+      </FooterSecondContainer>
     </div>
   );
 };
