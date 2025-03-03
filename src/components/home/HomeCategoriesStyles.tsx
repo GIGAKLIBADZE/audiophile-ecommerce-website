@@ -34,3 +34,12 @@ export const Shop = styled.span`
   color: #000;
   opacity: 0.5;
 `;
+
+export const Blurred = styled.div`
+  width: 9.5rem;
+  height: 1.4rem;
+  margin: 0 0.3rem 3.2rem 0.1rem;
+  background-color: #000;
+  filter: blur(25.5px);
+  position: absolute;
+`;
