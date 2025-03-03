@@ -61,6 +61,7 @@ export const CirclesContainer = styled.div`
   justify-content: center;
   position: absolute;
   top: -130px;
+  left: 0;
 `;
 
 export const CirclesImg = styled.img`
