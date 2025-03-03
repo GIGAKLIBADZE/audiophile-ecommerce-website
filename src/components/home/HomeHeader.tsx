@@ -1,14 +1,17 @@
 import React from "react";
-// import { HeaderContainer } from "./HeaderLayoutStyles";
-import { HeaderImage, HeaderContainer, ImageContainer } from "./HomeStyles";
+import {
+  HeaderImage,
+  HeaderContainer,
+  ImageContainer,
+} from "./HomeHeaderStyles";
 
 const HomeHeader: React.FC = () => {
   return (
     <>
       <HeaderContainer>
-        {/* {/* <ImageContainer> */}
-        <HeaderImage src="/images/home/mobile/image-header.jpg" alt="test" />
-        {/* </ImageContainer> */}
+        <ImageContainer>
+          <HeaderImage src="/images/home/mobile/image-header.jpg" alt="test" />
+        </ImageContainer>
       </HeaderContainer>
     </>
   );

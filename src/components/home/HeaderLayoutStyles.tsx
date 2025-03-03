@@ -7,7 +7,6 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* position: absolute; */
   position: relative;
 
   &:after {
@@ -18,5 +17,6 @@ export const HeaderContainer = styled.header`
     width: 100%;
     height: 0.1rem;
     background-color: #fff;
+    opacity: 0.1;
   }
 `;
