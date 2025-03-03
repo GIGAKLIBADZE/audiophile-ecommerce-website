@@ -13,28 +13,31 @@ import {
   Ad,
   AdLight,
   Description,
+  FooterFirstContainer,
 } from "../components/home/FooterLayoutStyles";
 import BestGear from "/images/shared/mobile/image-best-gear.jpg";
 
 const FooterLayout: React.FC = () => {
   return (
     <div>
-      <ImageContainer>
-        <Image src={BestGear} alt="Best gear" />
-      </ImageContainer>
-      <div>
-        <Ad>
-          BRINGING YOU THE <AdLight>BEST</AdLight> AUDIO GEAR
-        </Ad>
-        <Description>
-          Located at the heart of New York City, Audiophile is the premier store
-          for high end headphones, earphones, speakers, and audio accessories.
-          We have a large showroom and luxury demonstration rooms available for
-          you to browse and experience a wide range of our products. Stop by our
-          store to meet some of the fantastic people who make Audiophile the
-          best place to buy your portable audio equipment.
-        </Description>
-      </div>
+      <FooterFirstContainer>
+        <ImageContainer>
+          <Image src={BestGear} alt="Best gear" />
+        </ImageContainer>
+        <div>
+          <Ad>
+            BRINGING YOU THE <AdLight>BEST</AdLight> AUDIO GEAR
+          </Ad>
+          <Description>
+            Located at the heart of New York City, Audiophile is the premier
+            store for high end headphones, earphones, speakers, and audio
+            accessories. We have a large showroom and luxury demonstration rooms
+            available for you to browse and experience a wide range of our
+            products. Stop by our store to meet some of the fantastic people who
+            make Audiophile the best place to buy your portable audio equipment.
+          </Description>
+        </div>
+      </FooterFirstContainer>
       <FooterSecondContainer>
         <div>
           <img src={Title} alt="Title" />

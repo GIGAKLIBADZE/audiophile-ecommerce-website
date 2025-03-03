@@ -92,3 +92,7 @@ export const Description = styled.p`
   margin-inline: auto;
   margin-top: 3.2rem;
 `;
+
+export const FooterFirstContainer = styled.div`
+  margin-top: 12rem;
+`;
