@@ -15,5 +15,6 @@ body {
     min-height: 100vh;  
     font-family: 'Manrope', sans-serif;
     overflow-x: hidden;
+    background-color: #fafafa;
 }
 

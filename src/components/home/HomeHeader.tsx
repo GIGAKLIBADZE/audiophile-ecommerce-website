@@ -5,10 +5,10 @@ import {
   ImageContainer,
   HeaderTextContainer,
   NewProductText,
-  NewProductname,
-  AboutNewProduct,
+  ProductName,
+  AboutProduct,
+  UpperButton,
 } from "./HomeHeaderStyles";
-import SeeProduct from "./SeeProduct";
 
 const HomeHeader: React.FC = () => {
   return (
@@ -19,14 +19,15 @@ const HomeHeader: React.FC = () => {
         </ImageContainer>
         <HeaderTextContainer>
           <NewProductText>NEW PRODUCT</NewProductText>
-          <NewProductname>XX99 Mark II HeadphoneS</NewProductname>
-          <AboutNewProduct>
+          <ProductName style={{ marginTop: "1.6rem" }}>
+            XX99 Mark II HeadphoneS
+          </ProductName>
+          <AboutProduct>
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
-          </AboutNewProduct>
-          <div style={{ marginTop: "2.8rem" }}>
-            <SeeProduct />
-          </div>
+          </AboutProduct>
+          <div style={{ marginTop: "2.8rem" }}></div>
+          <UpperButton>SEE PRODUCT</UpperButton>
         </HeaderTextContainer>
       </HeaderContainer>
     </>

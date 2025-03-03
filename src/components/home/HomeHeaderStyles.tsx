@@ -30,20 +30,32 @@ export const NewProductText = styled.p`
   opacity: 0.5;
 `;
 
-export const NewProductname = styled.h4`
+export const ProductName = styled.h4`
   font-size: 3.6rem;
   font-weight: bold;
   line-height: 1.11;
   letter-spacing: 1.29px;
   color: #fff;
-  margin-top: 1.6rem;
 `;
 
-export const AboutNewProduct = styled.p`
+export const AboutProduct = styled.p`
   font-size: 1.5rem;
   font-weight: 500;
   line-height: 1.67;
   color: #fff;
   margin-top: 2.4rem;
   opacity: 0.75;
+`;
+
+export const UpperButton = styled.button`
+  width: 16rem;
+  height: 4.8rem;
+  background-color: #d87d4a;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-top: 2.8rem;
 `;
