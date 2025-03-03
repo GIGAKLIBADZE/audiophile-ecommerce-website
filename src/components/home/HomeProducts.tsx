@@ -3,6 +3,7 @@ import SampleProduct from "/images/home/mobile/image-speaker-zx7.jpg";
 import SampleProduct2 from "/images/home/mobile/image-earphones-yx1.jpg";
 import {
   AboutFirstProductContainer,
+  AboutSecondProductContainer,
   CirclesContainer,
   CirclesImg,
   FirstImage,
@@ -10,6 +11,11 @@ import {
   FirstProductBtn,
   MainContainer,
   ProductContainer,
+  SecondImage,
+  SecondImageContainer,
+  SecondProductBtn,
+  SecondProductContainer,
+  SecondProductText,
 } from "./HomeProductsStyles";
 import { AboutProduct, ProductName } from "./HomeHeaderStyles";
 
@@ -44,13 +50,16 @@ const HomeProducts: React.FC<{ data: any }> = ({ data }) => {
           <FirstProductBtn>SEE PRODUCT</FirstProductBtn>
         </AboutFirstProductContainer>
       </ProductContainer>
-      <div style={{ backgroundColor: "orange", height: "10rem" }}>
-        <h5>ZX7 SPEAKER</h5>
-        <button>SEE PRODUCT</button>
-      </div>
-      <div>
-        <img src={SampleProduct} style={{ width: "4rem", height: "4rem" }} />
-      </div>
+      <SecondProductContainer>
+        <AboutSecondProductContainer>
+          <SecondProductText>ZX7 SPEAKER</SecondProductText>
+          <SecondProductBtn>SEE PRODUCT</SecondProductBtn>
+        </AboutSecondProductContainer>
+        <SecondImageContainer>
+          <SecondImage src={SampleProduct} />
+        </SecondImageContainer>
+      </SecondProductContainer>
+
       <div>
         <div>
           <img src={SampleProduct2} style={{ width: "4rem", height: "4rem" }} />
