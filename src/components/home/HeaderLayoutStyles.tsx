@@ -3,15 +3,20 @@ import styled from "styled-components";
 export const HeaderContainer = styled.header`
   width: 100%;
   padding: 3.2rem 2.4rem;
-  background-color: #101010;
+  background-color: #191919;
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
+  /* position: absolute; */
+  position: relative;
 
-export const Line = styled.div`
-  width: 100%;
-  height: 0.1rem;
-  opacity: 0.1;
-  background-color: #fff;
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1rem;
+    background-color: #fff;
+  }
 `;
