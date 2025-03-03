@@ -8,6 +8,16 @@ export const FooterSecondContainer = styled.footer`
   padding: 5.2rem 2.4rem 3.8rem;
   background-color: #101010;
   margin-top: 12rem;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 10.1rem;
+    height: 0.4rem;
+    background-color: #d87d4a;
+  }
 `;
 
 export const FooterMenu = styled.nav`
@@ -56,12 +66,14 @@ export const Image = styled.img`
 `;
 
 export const Ad = styled.h5`
+  width: 87.2%;
   font-size: 2.8rem;
   font-weight: bold;
   line-height: normal;
   letter-spacing: 1px;
   text-align: center;
   color: #000;
+  margin-inline: auto;
   margin-top: 4rem;
 `;
 
