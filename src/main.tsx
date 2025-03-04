@@ -6,6 +6,7 @@ import CombineLayout from "./layouts/CombineLayouts";
 import Home from "./pages/Home";
 import { Provider } from "react-redux";
 import store from "./store";
+import CategoriesHeadPhones from "./pages/CategoryHeadphones";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/home",
         element: <Home />,
+      },
+      {
+        path: "/category-headphones",
+        element: <CategoriesHeadPhones />,
       },
     ],
   },
