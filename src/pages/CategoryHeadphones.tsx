@@ -1,5 +1,11 @@
+import HeadphonesTitle from "../components/Headphones/HeadphonesTitle";
+
 const CategoriesHeadPhones: React.FC = () => {
-  return <></>;
+  return (
+    <>
+      <HeadphonesTitle />
+    </>
+  );
 };
 
 export default CategoriesHeadPhones;
