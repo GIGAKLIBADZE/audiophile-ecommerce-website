@@ -61,3 +61,7 @@ export const HeadphonesTextContainer = styled.div`
   padding: 0 2.4rem;
   text-align: center;
 `;
+
+export const HeadphonesCategoriesContainer = styled.div`
+  margin-top: 17.2rem;
+`;

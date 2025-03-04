@@ -17,7 +17,9 @@ const Home: React.FC = () => {
   return (
     <div>
       <HomeHeader />
-      <HomeCategories data={data} />
+      <div style={{ marginTop: "9.2rem" }}>
+        <HomeCategories data={data} />
+      </div>
       <HomeProducts data={data} />/
     </div>
   );

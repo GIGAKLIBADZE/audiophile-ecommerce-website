@@ -4,7 +4,6 @@ export const CategoriesContainer = styled.nav`
   display: flex;
   flex-direction: column;
   gap: 6.8rem;
-  margin-top: 9.2rem;
 `;
 
 export const CategoryContainer = styled.div`
