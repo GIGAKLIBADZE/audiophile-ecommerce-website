@@ -39,9 +39,11 @@ const AvailableHeadphones: React.FC<{ data: any }> = ({ data }) => {
             <HeadphonesImageContainer>
               <HeadphonesImage src={item.categoryImage.mobile} />
             </HeadphonesImageContainer>
-            <h3>{item.name}</h3>
-            <p>{item.description}</p>
-            <button>SEE PRODUCT</button>
+            <HeadphonesTextContainer>
+              <HeadphonesTitle>{item.name}</HeadphonesTitle>
+              <HeadphonesDescription>{item.description}</HeadphonesDescription>
+              <HeadphonesBtn>SEE PRODUCT</HeadphonesBtn>
+            </HeadphonesTextContainer>
           </div>
         ))}
     </nav>
