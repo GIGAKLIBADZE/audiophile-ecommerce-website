@@ -12,18 +12,18 @@ export interface ICategoryImages {
     categoryImage: TDevices
 }
 
-export type IGalleryItem = {
+export type TGalleryItem = {
     first: TDevices;
     second: TDevices;
     third: TDevices;
 }
 
-export type IIncludeItem = {
+export type TIncludeItem = {
     quantity: number;
     item: string;
 }
 
-export type IOtherItem = {
+export type TOtherItem = {
     slug: string;
     name: string;
     image: TDevices;
@@ -40,7 +40,7 @@ export interface IItem {
     price: number;
     description: string;
     features: string;
-    includes: IIncludeItem[];
-    gallery: IGalleryItem;
-    other: IOtherItem[];
+    includes: TIncludeItem[];
+    gallery: TGalleryItem;
+    other: TOtherItem[];
 }
