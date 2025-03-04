@@ -7,12 +7,13 @@ import {
   HeadphonesDescription,
   HeadphonesBtn,
   HeadphonesTextContainer,
+  HeadphonesContainer,
 } from "./AvailableHeadphonesStyles";
 
 const AvailableHeadphones: React.FC<{ data: any }> = ({ data }) => {
   console.log(data);
   return (
-    <nav>
+    <HeadphonesContainer>
       {data
         .filter(
           (item: IItem) => item.category === "headphones" && item.new === true
@@ -24,7 +25,9 @@ const AvailableHeadphones: React.FC<{ data: any }> = ({ data }) => {
             </HeadphonesImageContainer>
             <HeadphonesTextContainer>
               <New>NEW PRODUCT</New>
-              <HeadphonesTitle>{item.name}</HeadphonesTitle>
+              <HeadphonesTitle style={{ marginTop: "2.4rem" }}>
+                {item.name}
+              </HeadphonesTitle>
               <HeadphonesDescription>{item.description}</HeadphonesDescription>
               <HeadphonesBtn>SEE PRODUCT</HeadphonesBtn>
             </HeadphonesTextContainer>
@@ -46,7 +49,7 @@ const AvailableHeadphones: React.FC<{ data: any }> = ({ data }) => {
             </HeadphonesTextContainer>
           </div>
         ))}
-    </nav>
+    </HeadphonesContainer>
   );
 };
 
