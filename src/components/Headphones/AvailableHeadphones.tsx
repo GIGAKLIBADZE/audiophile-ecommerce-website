@@ -3,7 +3,18 @@ const AvailableHeadphones: React.FC<{ data: any }> = ({ data }) => {
   return (
     <nav>
       {data
-        .filter((item: { category: string }) => item.category === "headphones")
+        .filter(
+          (item: { new: boolean; category: string }) =>
+            item.category === "headphones" && item.new === true
+        )
+        .map((item: { categoryImage: { mobile: any } }) => (
+          <img src={item.categoryImage.mobile} />
+        ))}
+      {data
+        .filter(
+          (item: { new: boolean; category: string }) =>
+            item.category === "headphones" && item.new === false
+        )
         .map((item: { categoryImage: { mobile: any } }) => (
           <img src={item.categoryImage.mobile} />
         ))}
