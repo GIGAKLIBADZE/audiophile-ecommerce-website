@@ -1,7 +1,7 @@
 import { Title, TitleContainer } from "./ProductsTitleStyles";
 import { useParams } from "react-router-dom";
 
-const HeadphonesTitle: React.FC = () => {
+const ProductsTitle: React.FC = () => {
   const { name } = useParams();
 
   return (
@@ -13,4 +13,4 @@ const HeadphonesTitle: React.FC = () => {
   );
 };
 
-export default HeadphonesTitle;
+export default ProductsTitle;

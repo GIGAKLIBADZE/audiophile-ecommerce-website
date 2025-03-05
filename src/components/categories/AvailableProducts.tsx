@@ -12,15 +12,18 @@ import {
 } from "./AvailableProductsStyles";
 import HomeCategories from "../home/HomeCategories";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
-const AvailableHeadphones: React.FC<{ data: any }> = ({ data }) => {
+const AvailableProducts: React.FC = () => {
+  const data: any = useSelector(
+    (store: RootState) => store.fetchedInformation.info
+  );
+
   if (!data) {
     return <div>Loading...</div>;
   }
 
-  //   if (!name) {
-  //     return <div>Not found</div>;
-  //   }
   const { name } = useParams();
 
   return (
@@ -63,10 +66,10 @@ const AvailableHeadphones: React.FC<{ data: any }> = ({ data }) => {
           ))}
       </HeadphonesContainer>
       <HeadphonesCategoriesContainer>
-        <HomeCategories data={data} />
+        <HomeCategories />
       </HeadphonesCategoriesContainer>
     </div>
   );
 };
 
-export default AvailableHeadphones;
+export default AvailableProducts;
