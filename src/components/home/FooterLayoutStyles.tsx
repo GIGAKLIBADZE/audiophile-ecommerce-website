@@ -62,6 +62,7 @@ export const ImageContainer = styled.div`
 
 export const Image = styled.img`
   width: 100%;
+  object-fit: cover;
   border-radius: 8px;
 `;
 

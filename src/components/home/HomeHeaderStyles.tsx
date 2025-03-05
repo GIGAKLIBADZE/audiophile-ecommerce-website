@@ -11,6 +11,7 @@ export const ImageContainer = styled.div`
 
 export const HeaderImage = styled.img`
   width: 100%;
+  object-fit: cover;
   margin-top: -8rem;
 `;
 
