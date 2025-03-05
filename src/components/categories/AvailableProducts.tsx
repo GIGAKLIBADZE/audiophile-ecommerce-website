@@ -15,7 +15,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
-const AvailableProducts: React.FC = () => {
+const AvailableHeadphones: React.FC = () => {
   const data: any = useSelector(
     (store: RootState) => store.fetchedInformation.info
   );
@@ -72,4 +72,4 @@ const AvailableProducts: React.FC = () => {
   );
 };
 
-export default AvailableProducts;
+export default AvailableHeadphones;
