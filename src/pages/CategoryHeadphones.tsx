@@ -1,5 +1,5 @@
-import HeadphonesTitle from "../components/Headphones/HeadphonesTitle";
-import AvailableHeadphoness from "../components/Headphones/AvailableHeadphones";
+import HeadphonesTitle from "../components/categories/Products";
+import AvailableHeadphoness from "../components/categories/AvailableProducts";
 import { fetchInformation } from "../features/data/dataSlice";
 import { AppDispatch, RootState } from "../store";
 import { useEffect } from "react";

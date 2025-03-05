@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const TitleContainer = styled.div`
   width: 100%;
   padding: 3.2rem 8.4rem;
-  /* background-color: #191919; */
   background-color: #000;
 `;
 

@@ -9,7 +9,7 @@ import {
   HeadphonesTextContainer,
   HeadphonesContainer,
   HeadphonesCategoriesContainer,
-} from "./AvailableHeadphonesStyles";
+} from "./AvailableProductsStyles";
 import HomeCategories from "../home/HomeCategories";
 import { useParams } from "react-router-dom";
 

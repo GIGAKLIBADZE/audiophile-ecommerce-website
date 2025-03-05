@@ -1,4 +1,4 @@
-import { Title, TitleContainer } from "./HeadphonesTitleStyles";
+import { Title, TitleContainer } from "./ProductsTitleStyles";
 
 const HeadphonesTitle: React.FC = () => {
   return (
