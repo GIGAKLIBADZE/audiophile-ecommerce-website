@@ -22,8 +22,14 @@ import {
   ThirdProductTextsContainer,
 } from "./HomeProductsStyles";
 import { AboutProduct, ProductName } from "./HomeHeaderStyles";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
-const HomeProducts: React.FC<{ data: any }> = ({ data }) => {
+const HomeProducts: React.FC = () => {
+  const data: any = useSelector(
+    (store: RootState) => store.fetchedInformation.info
+  );
+
   if (
     !data ||
     !data[5] ||

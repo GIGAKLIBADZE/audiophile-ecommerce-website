@@ -9,8 +9,14 @@ import {
   CategoryContainer,
   Title,
 } from "./HomeCategoriesStyles";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
-const HomeCategories: React.FC<{ data: any }> = ({ data }) => {
+const HomeCategories: React.FC = () => {
+  const data: any = useSelector(
+    (store: RootState) => store.fetchedInformation.info
+  );
+
   if (!data || !data[0] || !data[5].categoryImage.mobile || !data[2].others) {
     return <div>Loading...</div>;
   }
