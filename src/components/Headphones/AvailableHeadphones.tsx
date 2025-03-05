@@ -11,18 +11,23 @@ import {
   HeadphonesCategoriesContainer,
 } from "./AvailableHeadphonesStyles";
 import HomeCategories from "../home/HomeCategories";
+import { useParams } from "react-router-dom";
 
 const AvailableHeadphones: React.FC<{ data: any }> = ({ data }) => {
   if (!data) {
     return <div>Loading...</div>;
   }
+
+  //   if (!name) {
+  //     return <div>Not found</div>;
+  //   }
+  const { name } = useParams();
+
   return (
     <div>
       <HeadphonesContainer>
         {data
-          .filter(
-            (item: IItem) => item.category === "headphones" && item.new === true
-          )
+          .filter((item: IItem) => item.category === name && item.new === true)
           .map((item: IItem) => (
             <div>
               <HeadphonesImageContainer>
@@ -41,10 +46,7 @@ const AvailableHeadphones: React.FC<{ data: any }> = ({ data }) => {
             </div>
           ))}
         {data
-          .filter(
-            (item: IItem) =>
-              item.category === "headphones" && item.new === false
-          )
+          .filter((item: IItem) => item.category === name && item.new === false)
           .map((item: IItem) => (
             <div>
               <HeadphonesImageContainer>

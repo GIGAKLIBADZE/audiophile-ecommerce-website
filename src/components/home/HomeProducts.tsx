@@ -38,7 +38,7 @@ const HomeProducts: React.FC<{ data: any }> = ({ data }) => {
       <ProductContainer>
         <FirstImageContainer>
           <FirstImage
-            src={data[5].categoryImage.mobile}
+            src="images/shared/desktop/image-category-thumbnail-speakers.png"
             alt="First product image"
           />
         </FirstImageContainer>

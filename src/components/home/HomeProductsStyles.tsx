@@ -25,15 +25,14 @@ export const SecondProductContainer = styled.div`
 `;
 
 export const FirstImageContainer = styled.div`
-  width: 17.2rem;
-  height: 20.7rem;
   margin-inline: auto;
+  margin-top: 5.5rem;
 `;
 
 export const FirstImage = styled.img`
+  object-fit: cover;
   width: 100%;
   height: 100%;
-  margin-top: 5.5rem;
 `;
 
 export const FirstProductBtn = styled.button`
@@ -50,7 +49,7 @@ export const FirstProductBtn = styled.button`
 `;
 
 export const AboutFirstProductContainer = styled.div`
-  margin-top: 8.7rem;
+  /* margin-top: 8.7rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
