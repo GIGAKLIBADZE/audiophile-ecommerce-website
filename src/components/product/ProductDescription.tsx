@@ -2,12 +2,16 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { IItem } from "../../types/types";
 import { useParams } from "react-router-dom";
+import { TIncludeItem } from "../../types/types";
 
 const ProductDescription: React.FC = () => {
   const { slug } = useParams();
+
   const data: any = useSelector(
     (store: RootState) => store.fetchedInformation.info
   );
+
+  const product = data.find((item: IItem) => item.slug === slug);
 
   if (!data) {
     return <div>Loading...</div>;
@@ -34,7 +38,15 @@ const ProductDescription: React.FC = () => {
       </div>
       <div>
         <h3>IN THE BOX</h3>
-        {/* <ul>{data.filter((item: IItem) => item.slug === slug).map((item) => )}</ul> */}
+        <ul>
+          {product.includes.map((i: TIncludeItem) => (
+            <li key={product.id}>
+              <p>
+                <span>{i.quantity}x</span> {i.item}
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
