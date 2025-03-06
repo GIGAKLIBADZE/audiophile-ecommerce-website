@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction, asyncThunkCreator } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, } from "@reduxjs/toolkit";
 import { AppDispatch } from "../../store";
 
 const initialState = {
@@ -8,6 +8,7 @@ const initialState = {
 const dataSlice = createSlice({
     name: "data",
     initialState,
+
     reducers: {
         getInformation(state, action: PayloadAction<any>) {
             state.info = action.payload

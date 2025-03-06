@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useParams } from "react-router-dom";
 import { IItem } from "../../types/types";
-// import data from "../../../public/data.json";
 
 const ProductDetails: React.FC = () => {
   console.log("ProductDetails component rendered!");
@@ -11,7 +10,6 @@ const ProductDetails: React.FC = () => {
     (store: RootState) => store.fetchedInformation.info
   );
   const { slug } = useParams();
-  // console.log(slug);
 
   console.log(data);
   if (!data) {
