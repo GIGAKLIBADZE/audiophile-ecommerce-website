@@ -20,7 +20,7 @@ const ProductDetails: React.FC = () => {
         <p>Go Back</p>
         <div key={product.id}>
           <div>
-            <img src={product.image.toString()} />
+            <img src={product.image.mobile} />
           </div>
           <div>
             <p>NEW PRODUCT</p>
