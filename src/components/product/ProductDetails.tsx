@@ -4,15 +4,13 @@ import { useParams } from "react-router-dom";
 import { IItem } from "../../types/types";
 
 const ProductDetails: React.FC = () => {
-  console.log("ProductDetails component rendered!");
-
   const data: any = useSelector(
     (store: RootState) => store.fetchedInformation.info
   );
   const { slug } = useParams();
+  const product = data.find((item: IItem) => item.slug === slug);
 
-  console.log(data);
-  if (!data) {
+  if (!data || !product) {
     return <div>Loading...</div>;
   }
 
@@ -20,29 +18,25 @@ const ProductDetails: React.FC = () => {
     <>
       <div>
         <p>Go Back</p>
-        {data
-          .filter((item: IItem) => item.slug === slug && item.new === true)
-          .map((item: IItem) => (
-            <div key={item.id}>
+        <div key={product.id}>
+          <div>
+            <img src={product.image.toString()} />
+          </div>
+          <div>
+            <p>NEW PRODUCT</p>
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+            <p>{product.price}</p>
+            <div>
               <div>
-                <img src={item.image.toString()} />
+                <p>
+                  <span>-</span>1<span>+</span>
+                </p>
               </div>
-              <div>
-                <p>NEW PRODUCT</p>
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
-                <p>{item.price}</p>
-                <div>
-                  <div>
-                    <p>
-                      <span>-</span>1<span>+</span>
-                    </p>
-                  </div>
-                  <button>ADD TO CART</button>
-                </div>
-              </div>
+              <button>ADD TO CART</button>
             </div>
-          ))}
+          </div>
+        </div>
       </div>
     </>
   );

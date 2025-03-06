@@ -2,13 +2,12 @@ import { createSlice, PayloadAction, } from "@reduxjs/toolkit";
 import { AppDispatch } from "../../store";
 
 const initialState = {
-    info: ""
+    info: []
 }
 
 const dataSlice = createSlice({
     name: "data",
     initialState,
-
     reducers: {
         getInformation(state, action: PayloadAction<any>) {
             state.info = action.payload
