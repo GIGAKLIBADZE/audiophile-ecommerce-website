@@ -19,11 +19,11 @@ const ProductPictures: React.FC = () => {
     <section>
       <div>
         <div>
-          <img src={product.gallery.first.mobile} />
-          <img src={product.gallery.second.mobile} />
+          <img src={product.gallery.first.mobile} style={{ width: "4rem" }} />
+          <img src={product.gallery.second.mobile} style={{ width: "4rem" }} />
         </div>
         <div>
-          <img src={product.gallery.third.mobile} />
+          <img src={product.gallery.third.mobile} style={{ width: "4rem" }} />
         </div>
       </div>
     </section>

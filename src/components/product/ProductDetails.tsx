@@ -2,6 +2,20 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useParams } from "react-router-dom";
 import { IItem } from "../../types/types";
+import {
+  ProductImageContainer,
+  ProductImage,
+  ProductInterfaceAndDetails,
+  GoBack,
+  TitleOfTheProduct,
+  DescriptionOfTheProduct,
+  Price,
+  OperationsContainer,
+  CounterAndBtnContainer,
+  AddToCartBtn,
+  OperationsText,
+} from "./ProductDetailsStyles";
+import { New } from "../categories/AvailableProductsStyles";
 
 const ProductDetails: React.FC = () => {
   const data: any = useSelector(
@@ -16,28 +30,31 @@ const ProductDetails: React.FC = () => {
 
   return (
     <>
-      <div>
-        <p>Go Back</p>
+      <ProductInterfaceAndDetails>
+        <GoBack>Go Back</GoBack>
         <div key={product.id}>
+          <ProductImageContainer>
+            <ProductImage src={product.image.mobile} />
+          </ProductImageContainer>
           <div>
-            <img src={product.image.mobile} />
-          </div>
-          <div>
-            <p>NEW PRODUCT</p>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-            <div>
-              <div>
-                <p>
-                  <span>-</span>1<span>+</span>
-                </p>
-              </div>
-              <button>ADD TO CART</button>
-            </div>
+            <New>NEW PRODUCT</New>
+            <TitleOfTheProduct>{product.name.toUpperCase()}</TitleOfTheProduct>
+            <DescriptionOfTheProduct>
+              {product.description}
+            </DescriptionOfTheProduct>
+            <Price>${product.price}</Price>
+            <CounterAndBtnContainer>
+              <OperationsContainer>
+                <OperationsText>
+                  <span style={{ opacity: 0.25 }}>-</span>1
+                  <span style={{ opacity: 0.25 }}>+</span>
+                </OperationsText>
+              </OperationsContainer>
+              <AddToCartBtn>ADD TO CART</AddToCartBtn>
+            </CounterAndBtnContainer>
           </div>
         </div>
-      </div>
+      </ProductInterfaceAndDetails>
     </>
   );
 };
