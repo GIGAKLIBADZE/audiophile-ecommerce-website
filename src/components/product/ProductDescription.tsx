@@ -13,7 +13,7 @@ const ProductDescription: React.FC = () => {
 
   const product = data.find((item: IItem) => item.slug === slug);
 
-  if (!data) {
+  if (!data || !product) {
     return <div>Loading...</div>;
   }
 
@@ -40,7 +40,7 @@ const ProductDescription: React.FC = () => {
         <h3>IN THE BOX</h3>
         <ul>
           {product.includes.map((i: TIncludeItem) => (
-            <li key={product.id}>
+            <li key={i.item}>
               <p>
                 <span>{i.quantity}x</span> {i.item}
               </p>
