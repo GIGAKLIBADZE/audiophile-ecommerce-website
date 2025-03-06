@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, asyncThunkCreator } from "@reduxjs/toolkit";
 import { AppDispatch } from "../../store";
 
 const initialState = {
@@ -18,14 +18,16 @@ const dataSlice = createSlice({
 export function fetchInformation() {
     return async function(dispatch: AppDispatch) {
         try {
-            const response = await fetch("./data.json")
-            const data = response.json();
-            dispatch(getInformation(await data));
+            const response = await fetch("/data.json")
+            const data = await response.json();
+            console.log(data)
+            dispatch(getInformation(data));
         } catch(error) {
-            console.log(error)
+            console.log(error);
         }
     } 
 }
 
 export const { getInformation } = dataSlice.actions;
 export default dataSlice.reducer;
+

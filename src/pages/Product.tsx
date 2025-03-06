@@ -1,9 +1,10 @@
-import PeoductDetails from "../components/product/ProductDetails";
+import AvailableProducts from "../components/categories/AvailableProducts";
+import ProductDetails from "../components/product/ProductDetails";
 
 const Product: React.FC = () => {
   return (
     <>
-      <PeoductDetails />
+      <ProductDetails />
     </>
   );
 };

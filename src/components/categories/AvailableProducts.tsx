@@ -15,7 +15,8 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
-const AvailableHeadphones: React.FC = () => {
+const AvailableProducts: React.FC = () => {
+  const { name } = useParams();
   const data: any = useSelector(
     (store: RootState) => store.fetchedInformation.info
   );
@@ -24,15 +25,13 @@ const AvailableHeadphones: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  const { name } = useParams();
-
   return (
     <div>
       <HeadphonesContainer>
         {data
           .filter((item: IItem) => item.category === name && item.new === true)
           .map((item: IItem) => (
-            <div>
+            <div key={item.id}>
               <HeadphonesImageContainer>
                 <HeadphonesImage src={item.categoryImage.mobile} />
               </HeadphonesImageContainer>
@@ -51,7 +50,7 @@ const AvailableHeadphones: React.FC = () => {
         {data
           .filter((item: IItem) => item.category === name && item.new === false)
           .map((item: IItem) => (
-            <div>
+            <div key={item.id}>
               <HeadphonesImageContainer>
                 <HeadphonesImage src={item.categoryImage.mobile} />
               </HeadphonesImageContainer>
@@ -72,4 +71,4 @@ const AvailableHeadphones: React.FC = () => {
   );
 };
 
-export default AvailableHeadphones;
+export default AvailableProducts;
