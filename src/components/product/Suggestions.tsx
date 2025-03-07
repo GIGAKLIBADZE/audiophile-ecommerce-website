@@ -3,7 +3,16 @@ import { RootState } from "../../store";
 import { useParams } from "react-router-dom";
 import { IItem } from "../../types/types";
 import { TOtherItem } from "../../types/types";
-import { YouMayLike } from "./SuggestionsStyles";
+import {
+  SeeProduct,
+  SuggestedItem,
+  SuggestionName,
+  SuggestionsContainer,
+  SuggestionsOuterContainer,
+  YouMayLike,
+} from "./SuggestionsStyles";
+import { Image } from "../home/FooterLayoutStyles";
+import { ImageContainer } from "../home/HomeHeaderStyles";
 
 const Suggestions: React.FC = () => {
   const { slug } = useParams();
@@ -18,18 +27,20 @@ const Suggestions: React.FC = () => {
   }
 
   return (
-    <div>
+    <SuggestionsOuterContainer>
       <YouMayLike>YOU MAY ALSO LIKE</YouMayLike>
-      <nav>
+      <SuggestionsContainer>
         {product.others.map((item: TOtherItem) => (
-          <div key={item.name}>
-            <img src={item.image.mobile} />
-            <h3>{item.name}</h3>
-            <button>SEE PRODUCT</button>
-          </div>
+          <SuggestedItem key={item.name}>
+            <ImageContainer>
+              <Image src={item.image.mobile} />
+            </ImageContainer>
+            <SuggestionName>{item.name}</SuggestionName>
+            <SeeProduct>SEE PRODUCT</SeeProduct>
+          </SuggestedItem>
         ))}
-      </nav>
-    </div>
+      </SuggestionsContainer>
+    </SuggestionsOuterContainer>
   );
 };
 
