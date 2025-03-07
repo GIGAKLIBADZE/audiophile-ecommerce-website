@@ -2,6 +2,12 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useParams } from "react-router-dom";
 import { IItem } from "../../types/types";
+import {
+  FirstImagesContainer,
+  Image,
+  PicturesContainer,
+  SecondImageContainer,
+} from "./ProductPicturesStyles";
 
 const ProductPictures: React.FC = () => {
   const data: any = useSelector(
@@ -16,17 +22,17 @@ const ProductPictures: React.FC = () => {
   }
 
   return (
-    <section>
+    <PicturesContainer>
       <div>
-        <div>
-          <img src={product.gallery.first.mobile} style={{ width: "4rem" }} />
-          <img src={product.gallery.second.mobile} style={{ width: "4rem" }} />
-        </div>
-        <div>
-          <img src={product.gallery.third.mobile} style={{ width: "4rem" }} />
-        </div>
+        <FirstImagesContainer>
+          <Image src={product.gallery.first.mobile} />
+          <Image src={product.gallery.second.mobile} />
+        </FirstImagesContainer>
+        <SecondImageContainer>
+          <Image src={product.gallery.third.mobile} />
+        </SecondImageContainer>
       </div>
-    </section>
+    </PicturesContainer>
   );
 };
 
