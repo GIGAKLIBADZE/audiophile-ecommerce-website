@@ -3,6 +3,7 @@ import { RootState } from "../../store";
 import { useParams } from "react-router-dom";
 import { IItem } from "../../types/types";
 import { TOtherItem } from "../../types/types";
+import { YouMayLike } from "./SuggestionsStyles";
 
 const Suggestions: React.FC = () => {
   const { slug } = useParams();
@@ -18,10 +19,10 @@ const Suggestions: React.FC = () => {
 
   return (
     <div>
-      <h3>YOU MAY ALSO LIKE</h3>
+      <YouMayLike>YOU MAY ALSO LIKE</YouMayLike>
       <nav>
         {product.others.map((item: TOtherItem) => (
-          <div key={product.id}>
+          <div key={item.name}>
             <img src={item.image.mobile} />
             <h3>{item.name}</h3>
             <button>SEE PRODUCT</button>
