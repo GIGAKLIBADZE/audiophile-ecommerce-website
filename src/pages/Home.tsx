@@ -10,11 +10,12 @@ const Home: React.FC = () => {
 
   return (
     <div>
+      {cart ? <Cart /> : null}
       <HomeHeader />
       <div style={{ marginTop: "9.2rem" }}>
         <HomeCategories />
       </div>
-      <HomeProducts />/{cart ? <Cart /> : null}
+      <HomeProducts />
     </div>
   );
 };

@@ -9,6 +9,7 @@ export const FooterSecondContainer = styled.footer`
   background-color: #101010;
   margin-top: 12rem;
   position: relative;
+  z-index: 2;
 
   &:before {
     content: "";

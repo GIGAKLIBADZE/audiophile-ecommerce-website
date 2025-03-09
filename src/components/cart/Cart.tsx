@@ -1,7 +1,7 @@
-import { CartContainer } from "./CartStyles";
+import { CartOuterContainer } from "./CartStyles";
 
 const Cart: React.FC = () => {
-  return <CartContainer></CartContainer>;
+  return <CartOuterContainer></CartOuterContainer>;
 };
 
 export default Cart;

@@ -15,7 +15,7 @@ const CombineLayout: React.FC = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <HeaderLayout />
       <Outlet />
       <FooterLayout />
