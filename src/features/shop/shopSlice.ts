@@ -14,4 +14,5 @@ const shopSlice = createSlice({
     }
 })
 
+export const {cartShow} = shopSlice.actions
 export default shopSlice.reducer
