@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 export const CategoriesContainer = styled.nav`
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   gap: 6.8rem;
+  width: 87.2%;
 `;
 
 export const CategoryContainer = styled.div`
-  width: 32.7rem;
   height: 16.5rem;
   border-radius: 8px;
   background-color: #f1f1f1;
@@ -41,4 +42,16 @@ export const Blurred = styled.div`
   background-color: #000;
   filter: blur(25.5px);
   position: absolute;
+`;
+
+export const ImageContainer = styled.div`
+  position: relative;
+`;
+
+export const Image = styled.img`
+  margin-top: -5.2rem;
+`;
+
+export const ForShopAddress = styled.div`
+  margin-top: 1.7rem;
 `;

@@ -2,7 +2,7 @@ import ProductDetails from "../components/product/ProductDetails";
 import ProductDescription from "../components/product/ProductDescription";
 import ProductPictures from "../components/product/ProductPictures";
 import Suggestions from "../components/product/Suggestions";
-import Category from "./Category";
+import HomeCategories from "../components/home/HomeCategories";
 
 const Product: React.FC = () => {
   return (
@@ -11,7 +11,9 @@ const Product: React.FC = () => {
       <ProductDescription />
       <ProductPictures />
       <Suggestions />
-      <Category />
+      <div style={{ marginTop: "17.2rem" }}>
+        <HomeCategories />
+      </div>
     </>
   );
 };

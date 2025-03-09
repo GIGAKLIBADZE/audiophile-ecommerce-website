@@ -15,15 +15,15 @@ const router = createBrowserRouter([
     element: <CombineLayout />,
     children: [
       {
-        path: "/home",
+        path: "/",
         element: <Home />,
       },
       {
-        path: "/:name",
+        path: ":name",
         element: <Category />,
       },
       {
-        path: "/:name/:slug",
+        path: ":name/:slug",
         element: <Product />,
       },
     ],

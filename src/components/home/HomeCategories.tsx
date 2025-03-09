@@ -8,6 +8,9 @@ import {
   CategoriesContainer,
   CategoryContainer,
   Title,
+  ImageContainer,
+  Image,
+  ForShopAddress,
 } from "./HomeCategoriesStyles";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
@@ -22,49 +25,41 @@ const HomeCategories: React.FC = () => {
   }
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div>
       <CategoriesContainer>
         <CategoryContainer>
-          <div style={{ position: "relative" }}>
-            <img
-              src={Headphones}
-              alt="Headphones"
-              style={{ marginTop: "-5.2rem" }}
-            />
+          <ImageContainer>
+            <Image src={Headphones} alt="Headphones" />
             <Blurred></Blurred>
-          </div>
+          </ImageContainer>
           <Title>HEADPHONES</Title>
-          <div style={{ marginTop: "1.7rem" }}>
+          <ForShopAddress>
             <ShopAddress />
-          </div>
+          </ForShopAddress>
         </CategoryContainer>
         <CategoryContainer>
-          <div style={{ position: "relative" }}>
-            <img
+          <ImageContainer>
+            <Image
               src={Speaker}
               alt="Speaker"
               style={{ marginTop: "-5.12rem" }}
             />
             <Blurred></Blurred>
-          </div>
+          </ImageContainer>
           <Title>SPEAKERS</Title>
-          <div style={{ marginTop: "1.7rem" }}>
+          <ForShopAddress>
             <ShopAddress />
-          </div>
+          </ForShopAddress>
         </CategoryContainer>
         <CategoryContainer>
-          <div style={{ position: "relative" }}>
-            <img
-              src={Earphones}
-              alt="Earphones"
-              style={{ marginTop: "-5.2rem" }}
-            />
+          <ImageContainer>
+            <Image src={Earphones} alt="Earphones" />
             <Blurred></Blurred>
-          </div>
+          </ImageContainer>
           <Title>EARPHONES</Title>
-          <div style={{ marginTop: "1.7rem" }}>
+          <ForShopAddress>
             <ShopAddress />
-          </div>
+          </ForShopAddress>
         </CategoryContainer>
       </CategoriesContainer>
     </div>
