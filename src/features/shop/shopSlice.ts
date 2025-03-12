@@ -14,7 +14,6 @@ const shopSlice = createSlice({
         cartShow(state) {
             state.showCart = !state.showCart;
         },
-
         increaseAmount(state, action: PayloadAction<string>) {
             if (!state.amounts.hasOwnProperty(action.payload)) {
                 state.amounts[action.payload] = 0;
