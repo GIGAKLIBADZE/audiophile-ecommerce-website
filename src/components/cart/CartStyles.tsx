@@ -61,6 +61,7 @@ export const AddedProductName = styled.p`
   font-weight: bold;
   line-height: 1.67;
   color: #000;
+  width: 10rem;
 `;
 
 export const AddedProductPrice = styled.p`
