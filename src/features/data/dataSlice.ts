@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction} from "@reduxjs/toolkit";
 import { AppDispatch } from "../../store";
 
+
 const initialState = {
     info: []
 }
@@ -11,7 +12,7 @@ const dataSlice = createSlice({
     reducers: {
         getInformation(state, action: PayloadAction<any>) {
             state.info = action.payload
-        }
+        },
     }
 })
 

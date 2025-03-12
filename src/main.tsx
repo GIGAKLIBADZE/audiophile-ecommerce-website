@@ -5,9 +5,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CombineLayout from "./layouts/CombineLayouts";
 import Home from "./pages/Home";
 import { Provider } from "react-redux";
-import store from "./store";
 import Category from "./pages/Category";
 import Product from "./pages/Product";
+import { PersistGate } from "redux-persist/integration/react";
+import store, { persistor } from "./store";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <PersistGate loading={null} persistor={persistor}>
+        <RouterProvider router={router} />
+      </PersistGate>
     </Provider>
   </StrictMode>
 );

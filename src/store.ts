@@ -1,16 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { persistStore } from "redux-persist";
 import fetchedInformationReducer from "./features/data/dataSlice";
-import shopReducer from "./features/shop/shopSlice";
+import persistedReducer from "./features/shop/shopSlice";
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
 
 const store = configureStore({
-    reducer: {
-        fetchedInformation: fetchedInformationReducer,
-        shop: shopReducer
-    }
-})
+  reducer: {
+    fetchedInformation: fetchedInformationReducer,
+    shop: persistedReducer,
+  },
+});
 
+export const persistor = persistStore(store);
 
-export default store
+export default store;

@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useParams } from "react-router-dom";
 import { IItem } from "../../types/types";
@@ -16,13 +16,19 @@ import {
   OperationsText,
 } from "./ProductDetailsStyles";
 import { New } from "../categories/AvailableProductsStyles";
+import { AppDispatch } from "../../store";
+import { increaseAmount } from "../../features/shop/shopSlice";
 
 const ProductDetails: React.FC = () => {
   const data: any = useSelector(
     (store: RootState) => store.fetchedInformation.info
   );
+
+  console.log(data);
   const { slug } = useParams();
   const product = data.find((item: IItem) => item.slug === slug);
+
+  const dispatch = useDispatch<AppDispatch>();
 
   if (!data || !product) {
     return <div>Loading...</div>;
@@ -47,7 +53,14 @@ const ProductDetails: React.FC = () => {
               <OperationsContainer>
                 <OperationsText>
                   <span style={{ opacity: 0.25 }}>-</span>1
-                  <span style={{ opacity: 0.25 }}>+</span>
+                  <span
+                    style={{ opacity: 0.25 }}
+                    onClick={() => {
+                      if (slug) dispatch(increaseAmount(slug));
+                    }}
+                  >
+                    +
+                  </span>
                 </OperationsText>
               </OperationsContainer>
               <AddToCartBtn>ADD TO CART</AddToCartBtn>
