@@ -50,6 +50,40 @@ const Checkout: React.FC = () => {
                 </div>
               </div>
             </div>
+            <div>
+              <p>PAYMENT DETAILS</p>
+              <div>
+                <div>
+                  <p>Payment Method</p>
+                  <div>
+                    <div>
+                      <div>
+                        <div></div>
+                      </div>
+                      <p>e-Money</p>
+                    </div>
+                    <div>
+                      <div>
+                        <div></div>
+                      </div>
+                      <p>Cash on Delivery</p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="e-money-num">e-Money Number</label>
+                  <input
+                    type="number"
+                    id="e-money-num"
+                    placeholder="238521993"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="e-money-pin">e-Money Pin</label>
+                  <input type="number" id="e-money-pin" placeholder="6891" />
+                </div>
+              </div>
+            </div>
           </form>
         </div>
         <div></div>
