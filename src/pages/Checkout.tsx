@@ -1,6 +1,24 @@
 import { GoBack } from "../components/product/ProductDetailsStyles";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
+import { IItem } from "../types/types";
+import {
+  AddedProduct,
+  AddedProductImg,
+  AddedProductName,
+  AddedProductPrice,
+  AmountContainer,
+  ProductAndPriceContainer,
+} from "../components/cart/CartStyles";
+import { useDispatch } from "react-redux";
 
 const Checkout: React.FC = () => {
+  const amountOfProducts = useSelector(
+    (store: RootState) => store.shop.amounts
+  );
+  const data = useSelector((store: RootState) => store.fetchedInformation.info);
+  let totalPrice = 0;
+
   return (
     <div>
       <GoBack>Go Back</GoBack>
@@ -86,7 +104,54 @@ const Checkout: React.FC = () => {
             </div>
           </form>
         </div>
-        <div></div>
+        <div>
+          <h6>SUMMARY</h6>
+          <section>
+            {data
+              .filter((item: IItem) =>
+                amountOfProducts.hasOwnProperty(item.slug)
+              )
+              .map((item: IItem) => (
+                <div key={item.id}>
+                  <img
+                    src={item.image.mobile}
+                    alt="Product"
+                    style={{ width: "8rem", objectFit: "contain" }}
+                  />
+                  <div>
+                    <strong>{item.name}</strong>
+                    <p>${item.price}</p>
+                  </div>
+                  {Object.entries(amountOfProducts).map(([key, value]) => {
+                    totalPrice += item.price * value;
+                    if (key === item.slug) {
+                      return <div>x{value}</div>;
+                    }
+                  })}
+                </div>
+              ))}
+          </section>
+          <section>
+            <div>
+              <div>
+                <p>TOTAL</p>
+                <strong>{totalPrice}</strong>
+              </div>
+              <div>
+                <p>SHIPPING</p>
+                <strong></strong>
+              </div>
+              <div>
+                <p>VAT (INCLUDED)</p>
+                <strong></strong>
+              </div>
+            </div>
+            <div>
+              <p>GRAND TOTAL</p>
+              <strong></strong>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );

@@ -18,8 +18,13 @@ import {
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { IItem } from "../../types/types";
+import { AppDispatch } from "../../store";
+import { useDispatch } from "react-redux";
+import { increaseAmount } from "../../features/shop/shopSlice";
 
 const Cart: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+
   const amountOfProducts = useSelector(
     (store: RootState) => store.shop.amounts
   );
@@ -49,7 +54,14 @@ const Cart: React.FC = () => {
                       <AmountContainer>
                         <span style={{ opacity: "0.25" }}>-</span>
                         {value}
-                        <span style={{ opacity: "0.25" }}>+</span>
+                        <span
+                          style={{ opacity: "0.25" }}
+                          onClick={() => {
+                            dispatch(increaseAmount(item.slug));
+                          }}
+                        >
+                          +
+                        </span>
                       </AmountContainer>
                     );
                   }
