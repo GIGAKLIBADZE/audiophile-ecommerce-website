@@ -120,7 +120,7 @@ const Checkout: React.FC = () => {
                   />
                   <div>
                     <strong>{item.name}</strong>
-                    <p>${item.price}</p>
+                    <p>${item.price.toLocaleString()}</p>
                   </div>
                   {Object.entries(amountOfProducts).map(([key, value]) => {
                     if (key === item.slug) {
@@ -135,15 +135,19 @@ const Checkout: React.FC = () => {
             <div>
               <div>
                 <p>TOTAL</p>
-                <strong>{totalPrice}</strong>
+                <strong>{totalPrice.toLocaleString()}</strong>
               </div>
               <div>
                 <p>SHIPPING</p>
-                <strong></strong>
+                <strong>$50</strong>
               </div>
               <div>
                 <p>VAT (INCLUDED)</p>
-                <strong></strong>
+                <strong>
+                  {Number(
+                    ((totalPrice * 0.247) / 1.247).toFixed()
+                  ).toLocaleString()}
+                </strong>
               </div>
             </div>
             <div>
