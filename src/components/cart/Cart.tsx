@@ -20,7 +20,7 @@ import { RootState } from "../../store";
 import { IItem } from "../../types/types";
 import { AppDispatch } from "../../store";
 import { useDispatch } from "react-redux";
-import { increaseAmount } from "../../features/shop/shopSlice";
+import { increaseAmount, decreaseAmount } from "../../features/shop/shopSlice";
 
 const Cart: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -52,7 +52,14 @@ const Cart: React.FC = () => {
                   if (key === item.slug) {
                     return (
                       <AmountContainer>
-                        <span style={{ opacity: "0.25" }}>-</span>
+                        <span
+                          style={{ opacity: "0.25" }}
+                          onClick={() => {
+                            dispatch(decreaseAmount(item.slug));
+                          }}
+                        >
+                          -
+                        </span>
                         {value}
                         <span
                           style={{ opacity: "0.25" }}

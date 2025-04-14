@@ -123,8 +123,8 @@ const Checkout: React.FC = () => {
                     <p>${item.price}</p>
                   </div>
                   {Object.entries(amountOfProducts).map(([key, value]) => {
-                    totalPrice += item.price * value;
                     if (key === item.slug) {
+                      totalPrice += item.price * value;
                       return <div>x{value}</div>;
                     }
                   })}

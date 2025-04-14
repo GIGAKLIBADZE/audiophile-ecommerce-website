@@ -17,7 +17,7 @@ import {
 } from "./ProductDetailsStyles";
 import { New } from "../categories/AvailableProductsStyles";
 import { AppDispatch } from "../../store";
-import { increaseAmount } from "../../features/shop/shopSlice";
+import { decreaseAmount, increaseAmount } from "../../features/shop/shopSlice";
 
 const ProductDetails: React.FC = () => {
   const data: any = useSelector(
@@ -52,7 +52,15 @@ const ProductDetails: React.FC = () => {
             <CounterAndBtnContainer>
               <OperationsContainer>
                 <OperationsText>
-                  <span style={{ opacity: 0.25 }}>-</span>1
+                  <span
+                    style={{ opacity: 0.25 }}
+                    onClick={() => {
+                      if (slug) dispatch(decreaseAmount(slug));
+                    }}
+                  >
+                    -
+                  </span>
+                  1
                   <span
                     style={{ opacity: 0.25 }}
                     onClick={() => {
