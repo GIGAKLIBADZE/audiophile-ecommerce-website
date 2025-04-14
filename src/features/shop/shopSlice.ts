@@ -21,7 +21,12 @@ const shopSlice = createSlice({
                 state.amounts[action.payload] += 1;
             }
             console.log(JSON.stringify(state.amounts, null, 2));
-        }  
+        },
+        decreaseAmount(state, action: PayloadAction<string>) {
+            if (state.amounts[action.payload] > 0) {
+                state.amounts[action.payload] -= 1;
+            }
+        }
     }
 })
 
@@ -35,4 +40,4 @@ const persistedReducer = persistReducer(persistConfig, shopSlice.reducer);
 
 export default persistedReducer;
 
-export const { cartShow, increaseAmount } = shopSlice.actions
+export const { cartShow, increaseAmount, decreaseAmount } = shopSlice.actions
