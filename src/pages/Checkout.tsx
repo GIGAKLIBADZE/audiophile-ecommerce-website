@@ -11,6 +11,21 @@ import {
   ProductAndPriceContainer,
 } from "../components/cart/CartStyles";
 import { useDispatch } from "react-redux";
+import {
+  BillingDetailsPart,
+  CheckoutContaienr,
+  CheckoutLabel,
+  CheckoutMainContainer,
+  CheckoutTitle,
+  DetailedTitle,
+  DetailsPartContainer,
+  InputContainer,
+  InputItself,
+  PaymentDetailsDetailPart,
+  PaymentMethod,
+  PaymentMethodText,
+  ShippingDetailPart,
+} from "../components/checkout/checkoutStyles";
 
 const Checkout: React.FC = () => {
   const amountOfProducts = useSelector(
@@ -20,90 +35,118 @@ const Checkout: React.FC = () => {
   let totalPrice = 0;
 
   return (
-    <div>
+    <CheckoutMainContainer>
       <GoBack>Go Back</GoBack>
       <div>
-        <div>
-          <h5>CHECKOUT</h5>
+        <CheckoutContaienr>
+          <CheckoutTitle>CHECKOUT</CheckoutTitle>
           <form>
-            <div>
-              <p>BILLING DETAILS</p>
-              <div>
-                <div>
-                  <label htmlFor="name">Name</label>
-                  <input type="text" id="name" placeholder="Alexei Ward" />
-                </div>
-                <div>
-                  <label htmlFor="email">Email Address</label>
-                  <input type="text" id="email" placeholder="alexei@mail.com" />
-                </div>
-                <div>
-                  <label htmlFor="phone">Phone Number</label>
-                  <input type="text" id="phone" placeholder="+1 202-555-0136" />
-                </div>
-              </div>
-            </div>
-            <div>
-              <p>SHIPPING INFO</p>
-              <div>
-                <div>
-                  <label htmlFor="address">Your Address</label>
-                  <input
+            <DetailsPartContainer>
+              <DetailedTitle>BILLING DETAILS</DetailedTitle>
+              <BillingDetailsPart>
+                <InputContainer>
+                  <CheckoutLabel htmlFor="name">Name</CheckoutLabel>
+                  <InputItself
+                    type="text"
+                    id="name"
+                    placeholder="Alexei Ward"
+                  />
+                </InputContainer>
+                <InputContainer>
+                  <CheckoutLabel htmlFor="email">Email Address</CheckoutLabel>
+                  <InputItself
+                    type="text"
+                    id="email"
+                    placeholder="alexei@mail.com"
+                  />
+                </InputContainer>
+                <InputContainer>
+                  <CheckoutLabel htmlFor="phone">Phone Number</CheckoutLabel>
+                  <InputItself
+                    type="text"
+                    id="phone"
+                    placeholder="+1 202-555-0136"
+                  />
+                </InputContainer>
+              </BillingDetailsPart>
+            </DetailsPartContainer>
+            <DetailsPartContainer>
+              <DetailedTitle>SHIPPING INFO</DetailedTitle>
+              <ShippingDetailPart>
+                <InputContainer>
+                  <CheckoutLabel htmlFor="address">Your Address</CheckoutLabel>
+                  <InputItself
                     type="text"
                     id="address"
                     placeholder="1137 Williams Avenue"
                   />
-                </div>
+                </InputContainer>
+                <InputContainer>
+                  <CheckoutLabel htmlFor="zip-code">Zip Code</CheckoutLabel>
+                  <InputItself
+                    type="number"
+                    id="zip-code"
+                    placeholder="10001"
+                  />
+                </InputContainer>
+                <InputContainer>
+                  <CheckoutLabel htmlFor="city">City</CheckoutLabel>
+                  <InputItself type="text" id="city" placeholder="New York" />
+                </InputContainer>
+                <InputContainer>
+                  <CheckoutLabel htmlFor="country">Country</CheckoutLabel>
+                  <InputItself
+                    type="text"
+                    id="country"
+                    placeholder="United States"
+                  />
+                </InputContainer>
+              </ShippingDetailPart>
+            </DetailsPartContainer>
+            <DetailsPartContainer>
+              <DetailedTitle>PAYMENT DETAILS</DetailedTitle>
+              <DetailsPartContainer>
                 <div>
-                  <label htmlFor="zip-code">Zip Code</label>
-                  <input type="number" id="zip-code" placeholder="10001" />
-                </div>
-                <div>
-                  <label htmlFor="city">City</label>
-                  <input type="text" id="city" placeholder="New York" />
-                </div>
-                <div>
-                  <label htmlFor="country">Country</label>
-                  <input type="text" id="country" placeholder="United States" />
-                </div>
-              </div>
-            </div>
-            <div>
-              <p>PAYMENT DETAILS</p>
-              <div>
-                <div>
-                  <p>Payment Method</p>
-                  <div>
-                    <div>
+                  <CheckoutLabel>Payment Method</CheckoutLabel>
+                  <PaymentDetailsDetailPart>
+                    <PaymentMethod>
                       <div>
-                        <div></div>
+                        <input type="radio" name="payment-method" />
                       </div>
-                      <p>e-Money</p>
-                    </div>
-                    <div>
+                      <PaymentMethodText>e-Money</PaymentMethodText>
+                    </PaymentMethod>
+                    <PaymentMethod>
                       <div>
-                        <div></div>
+                        <input type="radio" name="payment-method" />
                       </div>
-                      <p>Cash on Delivery</p>
-                    </div>
-                  </div>
+                      <PaymentMethodText>Cash on Delivery</PaymentMethodText>
+                    </PaymentMethod>
+                  </PaymentDetailsDetailPart>
                 </div>
-                <div>
-                  <label htmlFor="e-money-num">e-Money Number</label>
-                  <input
+                <InputContainer>
+                  <CheckoutLabel htmlFor="e-money-num">
+                    e-Money Number
+                  </CheckoutLabel>
+                  <InputItself
                     type="number"
                     id="e-money-num"
                     placeholder="238521993"
                   />
-                </div>
-                <div>
-                  <label htmlFor="e-money-pin">e-Money Pin</label>
-                  <input type="number" id="e-money-pin" placeholder="6891" />
-                </div>
-              </div>
-            </div>
+                </InputContainer>
+                <InputContainer>
+                  <CheckoutLabel htmlFor="e-money-pin">
+                    e-Money Pin
+                  </CheckoutLabel>
+                  <InputItself
+                    type="number"
+                    id="e-money-pin"
+                    placeholder="6891"
+                  />
+                </InputContainer>
+              </DetailsPartContainer>
+            </DetailsPartContainer>
           </form>
-        </div>
+        </CheckoutContaienr>
         <div>
           <h6>SUMMARY</h6>
           <section>
@@ -158,7 +201,7 @@ const Checkout: React.FC = () => {
           <button>CONTINUE & PAY</button>
         </div>
       </div>
-    </div>
+    </CheckoutMainContainer>
   );
 };
 
