@@ -155,6 +155,7 @@ const Checkout: React.FC = () => {
               <strong></strong>
             </div>
           </section>
+          <button>CONTINUE & PAY</button>
         </div>
       </div>
     </div>
