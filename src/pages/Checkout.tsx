@@ -25,6 +25,13 @@ import {
   PaymentMethod,
   PaymentMethodText,
   ShippingDetailPart,
+  SummaryContainer,
+  SummaryImg,
+  SummaryProductAmount,
+  SummaryProductContainer,
+  SummaryProductPrice,
+  SummaryProductTitle,
+  SummaryTitle,
 } from "../components/checkout/checkoutStyles";
 
 const Checkout: React.FC = () => {
@@ -32,7 +39,14 @@ const Checkout: React.FC = () => {
     (store: RootState) => store.shop.amounts
   );
   const data = useSelector((store: RootState) => store.fetchedInformation.info);
-  let totalPrice = 0;
+
+  const filteredProducts = data.filter((item: IItem) =>
+    amountOfProducts.hasOwnProperty(item.slug)
+  );
+
+  const totalPrice = filteredProducts.reduce((sum: number, item: IItem) => {
+    return sum + item.price * amountOfProducts[item.slug];
+  }, 0);
 
   return (
     <CheckoutMainContainer>
@@ -148,32 +162,23 @@ const Checkout: React.FC = () => {
             </DetailsPartContainer>
           </form>
         </CheckoutContaienr>
-        <div>
-          <h6>SUMMARY</h6>
+        <SummaryContainer>
+          <SummaryTitle>SUMMARY</SummaryTitle>
           <section>
-            {data
-              .filter((item: IItem) =>
-                amountOfProducts.hasOwnProperty(item.slug)
-              )
-              .map((item: IItem) => (
-                <div key={item.id}>
-                  <img
-                    src={item.image.mobile}
-                    alt="Product"
-                    style={{ width: "8rem", objectFit: "contain" }}
-                  />
-                  <div>
-                    <strong>{item.name}</strong>
-                    <p>${item.price.toLocaleString()}</p>
-                  </div>
-                  {Object.entries(amountOfProducts).map(([key, value]) => {
-                    if (key === item.slug) {
-                      totalPrice += item.price * value;
-                      return <div>x{value}</div>;
-                    }
-                  })}
+            {filteredProducts.map((item: IItem) => (
+              <SummaryProductContainer key={item.id}>
+                <SummaryImg src={item.image.mobile} alt="Product" />
+                <div>
+                  <SummaryProductTitle>{item.name}</SummaryProductTitle>
+                  <SummaryProductPrice>
+                    ${item.price.toLocaleString()}
+                  </SummaryProductPrice>
                 </div>
-              ))}
+                <SummaryProductAmount>
+                  x{amountOfProducts[item.slug]}
+                </SummaryProductAmount>
+              </SummaryProductContainer>
+            ))}
           </section>
           <section>
             <div>
@@ -200,7 +205,7 @@ const Checkout: React.FC = () => {
             </div>
           </section>
           <button>CONTINUE & PAY</button>
-        </div>
+        </SummaryContainer>
       </div>
     </CheckoutMainContainer>
   );

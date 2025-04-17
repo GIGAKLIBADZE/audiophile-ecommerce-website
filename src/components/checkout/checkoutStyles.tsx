@@ -97,3 +97,48 @@ export const PaymentMethodText = styled.p`
   display: flex;
   align-items: center;
 `;
+
+export const SummaryContainer = styled.div`
+  padding: 3.2rem 2.4rem;
+  border-radius: 8px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+`;
+
+export const SummaryTitle = styled.h6`
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 1.29px;
+  color: #000;
+`;
+
+export const SummaryProductContainer = styled.div`
+  display: flex;
+`;
+
+export const SummaryProductTitle = styled.strong`
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1.67;
+  color: #000;
+`;
+
+export const SummaryProductPrice = styled.p`
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.79;
+  color: #000;
+  opacity: 0.5;
+`;
+
+export const SummaryProductAmount = styled(SummaryProductTitle)`
+  opacity: 0.5;
+`;
+
+export const SummaryImg = styled.img`
+  width: 6.4rem;
+  object-fit: contain;
+`;
