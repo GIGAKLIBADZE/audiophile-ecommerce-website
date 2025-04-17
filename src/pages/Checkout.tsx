@@ -32,6 +32,7 @@ import {
   SummaryProductInnerContainer,
   SummaryProductPrice,
   SummaryProductTitle,
+  SummaryProdyuctsContainer,
   SummaryTitle,
 } from "../components/checkout/checkoutStyles";
 
@@ -165,7 +166,7 @@ const Checkout: React.FC = () => {
         </CheckoutContaienr>
         <SummaryContainer>
           <SummaryTitle>SUMMARY</SummaryTitle>
-          <section>
+          <SummaryProdyuctsContainer>
             {filteredProducts.map((item: IItem) => (
               <SummaryProductContainer key={item.id}>
                 <SummaryImg src={item.image.mobile} alt="Product" />
@@ -182,7 +183,7 @@ const Checkout: React.FC = () => {
                 </SummaryProductInnerContainer>
               </SummaryProductContainer>
             ))}
-          </section>
+          </SummaryProdyuctsContainer>
           <section>
             <div>
               <div>

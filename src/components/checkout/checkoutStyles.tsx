@@ -115,6 +115,12 @@ export const SummaryTitle = styled.h6`
   color: #000;
 `;
 
+export const SummaryProdyuctsContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+`;
+
 export const SummaryProductContainer = styled.div`
   display: flex;
   align-items: center;
