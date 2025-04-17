@@ -111,7 +111,11 @@ const Checkout: React.FC = () => {
                   <PaymentDetailsDetailPart>
                     <PaymentMethod>
                       <div>
-                        <input type="radio" name="payment-method" />
+                        <input
+                          type="radio"
+                          name="payment-method"
+                          defaultChecked
+                        />
                       </div>
                       <PaymentMethodText>e-Money</PaymentMethodText>
                     </PaymentMethod>
