@@ -117,6 +117,15 @@ export const SummaryTitle = styled.h6`
 
 export const SummaryProductContainer = styled.div`
   display: flex;
+  align-items: center;
+`;
+
+export const SummaryProductInnerContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  margin-left: 1.6rem;
 `;
 
 export const SummaryProductTitle = styled.strong`
@@ -134,7 +143,12 @@ export const SummaryProductPrice = styled.p`
   opacity: 0.5;
 `;
 
-export const SummaryProductAmount = styled(SummaryProductTitle)`
+export const SummaryProductAmount = styled.p`
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 1.29px;
+  color: #000;
   opacity: 0.5;
 `;
 

@@ -29,6 +29,7 @@ import {
   SummaryImg,
   SummaryProductAmount,
   SummaryProductContainer,
+  SummaryProductInnerContainer,
   SummaryProductPrice,
   SummaryProductTitle,
   SummaryTitle,
@@ -168,15 +169,17 @@ const Checkout: React.FC = () => {
             {filteredProducts.map((item: IItem) => (
               <SummaryProductContainer key={item.id}>
                 <SummaryImg src={item.image.mobile} alt="Product" />
-                <div>
-                  <SummaryProductTitle>{item.name}</SummaryProductTitle>
-                  <SummaryProductPrice>
-                    ${item.price.toLocaleString()}
-                  </SummaryProductPrice>
-                </div>
-                <SummaryProductAmount>
-                  x{amountOfProducts[item.slug]}
-                </SummaryProductAmount>
+                <SummaryProductInnerContainer>
+                  <div>
+                    <SummaryProductTitle>{item.name}</SummaryProductTitle>
+                    <SummaryProductPrice>
+                      ${item.price.toLocaleString()}
+                    </SummaryProductPrice>
+                  </div>
+                  <SummaryProductAmount>
+                    x{amountOfProducts[item.slug]}
+                  </SummaryProductAmount>
+                </SummaryProductInnerContainer>
               </SummaryProductContainer>
             ))}
           </section>
