@@ -105,49 +105,46 @@ const Checkout: React.FC = () => {
             </DetailsPartContainer>
             <DetailsPartContainer>
               <DetailedTitle>PAYMENT DETAILS</DetailedTitle>
-              <DetailsPartContainer>
-                <div>
+
+              <div>
+                <PaymentDetailsDetailPart>
                   <CheckoutLabel>Payment Method</CheckoutLabel>
-                  <PaymentDetailsDetailPart>
-                    <PaymentMethod>
-                      <div>
-                        <input
-                          type="radio"
-                          name="payment-method"
-                          defaultChecked
-                        />
-                      </div>
-                      <PaymentMethodText>e-Money</PaymentMethodText>
-                    </PaymentMethod>
-                    <PaymentMethod>
-                      <div>
-                        <input type="radio" name="payment-method" />
-                      </div>
-                      <PaymentMethodText>Cash on Delivery</PaymentMethodText>
-                    </PaymentMethod>
-                  </PaymentDetailsDetailPart>
-                </div>
-                <InputContainer>
-                  <CheckoutLabel htmlFor="e-money-num">
-                    e-Money Number
-                  </CheckoutLabel>
-                  <InputItself
-                    type="number"
-                    id="e-money-num"
-                    placeholder="238521993"
-                  />
-                </InputContainer>
-                <InputContainer>
-                  <CheckoutLabel htmlFor="e-money-pin">
-                    e-Money Pin
-                  </CheckoutLabel>
-                  <InputItself
-                    type="number"
-                    id="e-money-pin"
-                    placeholder="6891"
-                  />
-                </InputContainer>
-              </DetailsPartContainer>
+                  <PaymentMethod>
+                    <div>
+                      <input
+                        type="radio"
+                        name="payment-method"
+                        defaultChecked
+                      />
+                    </div>
+                    <PaymentMethodText>e-Money</PaymentMethodText>
+                  </PaymentMethod>
+                  <PaymentMethod>
+                    <div>
+                      <input type="radio" name="payment-method" />
+                    </div>
+                    <PaymentMethodText>Cash on Delivery</PaymentMethodText>
+                  </PaymentMethod>
+                </PaymentDetailsDetailPart>
+              </div>
+              <InputContainer>
+                <CheckoutLabel htmlFor="e-money-num">
+                  e-Money Number
+                </CheckoutLabel>
+                <InputItself
+                  type="number"
+                  id="e-money-num"
+                  placeholder="238521993"
+                />
+              </InputContainer>
+              <InputContainer>
+                <CheckoutLabel htmlFor="e-money-pin">e-Money Pin</CheckoutLabel>
+                <InputItself
+                  type="number"
+                  id="e-money-pin"
+                  placeholder="6891"
+                />
+              </InputContainer>
             </DetailsPartContainer>
           </form>
         </CheckoutContaienr>
