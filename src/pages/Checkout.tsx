@@ -8,6 +8,7 @@ import {
   CheckoutLabel,
   CheckoutMainContainer,
   CheckoutTitle,
+  ContinuePayBtn,
   DetailedTitle,
   DetailsPartContainer,
   EntireSummaryContainer,
@@ -215,7 +216,7 @@ const Checkout: React.FC = () => {
               </SummaryPrice>
             </SummaryInfoContainer>
           </EntireSummaryContainer>
-          <button>CONTINUE & PAY</button>
+          <ContinuePayBtn>CONTINUE & PAY</ContinuePayBtn>
         </SummaryContainer>
       </div>
     </CheckoutMainContainer>

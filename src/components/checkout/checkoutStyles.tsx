@@ -196,3 +196,15 @@ export const SummaryPrice = styled.strong`
   display: flex;
   gap: 0.4rem;
 `;
+
+export const ContinuePayBtn = styled.button`
+  width: 100%;
+  height: 4.8rem;
+  background-color: #d87d4a;
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: #fff;
+  border: none;
+`;
