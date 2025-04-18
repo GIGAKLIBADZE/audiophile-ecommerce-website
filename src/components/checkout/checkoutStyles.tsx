@@ -163,6 +163,18 @@ export const SummaryImg = styled.img`
   object-fit: contain;
 `;
 
+export const EntireSummaryContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+`;
+
+export const UpperSummaryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+`;
+
 export const SummaryInfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -174,4 +186,13 @@ export const SummaryInfoText = styled.p`
   line-height: 1.67;
   color: #000;
   opacity: 0.5;
+`;
+
+export const SummaryPrice = styled.strong`
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: normal;
+  color: #000;
+  display: flex;
+  gap: 0.4rem;
 `;

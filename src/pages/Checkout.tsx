@@ -10,6 +10,7 @@ import {
   CheckoutTitle,
   DetailedTitle,
   DetailsPartContainer,
+  EntireSummaryContainer,
   InputContainer,
   InputItself,
   PaymentDetailsDetailPart,
@@ -20,6 +21,7 @@ import {
   SummaryImg,
   SummaryInfoContainer,
   SummaryInfoText,
+  SummaryPrice,
   SummaryProductAmount,
   SummaryProductContainer,
   SummaryProductInnerContainer,
@@ -27,6 +29,7 @@ import {
   SummaryProductTitle,
   SummaryProductsContainer,
   SummaryTitle,
+  UpperSummaryContainer,
 } from "../components//checkout/checkoutStyles";
 
 const Checkout: React.FC = () => {
@@ -179,30 +182,39 @@ const Checkout: React.FC = () => {
               </SummaryProductContainer>
             ))}
           </SummaryProductsContainer>
-          <section>
-            <div>
+          <EntireSummaryContainer>
+            <UpperSummaryContainer>
               <SummaryInfoContainer>
                 <SummaryInfoText>TOTAL</SummaryInfoText>
-                <strong>{totalPrice.toLocaleString()}</strong>
+                <SummaryPrice>
+                  <span>$</span>
+                  {totalPrice.toLocaleString()}
+                </SummaryPrice>
               </SummaryInfoContainer>
               <SummaryInfoContainer>
                 <SummaryInfoText>SHIPPING</SummaryInfoText>
-                <strong>$50</strong>
+                <SummaryPrice>
+                  <span>$</span>50
+                </SummaryPrice>
               </SummaryInfoContainer>
               <SummaryInfoContainer>
                 <SummaryInfoText>VAT (INCLUDED)</SummaryInfoText>
-                <strong>
+                <SummaryPrice>
+                  <span>$</span>
                   {Number(
                     ((totalPrice * 0.247) / 1.247).toFixed()
                   ).toLocaleString()}
-                </strong>
+                </SummaryPrice>
               </SummaryInfoContainer>
-            </div>
+            </UpperSummaryContainer>
             <SummaryInfoContainer>
               <SummaryInfoText>GRAND TOTAL</SummaryInfoText>
-              <strong>{Number(grandTotal.toFixed()).toLocaleString()}</strong>
+              <SummaryPrice>
+                <span>$</span>
+                {Number(grandTotal.toFixed()).toLocaleString()}
+              </SummaryPrice>
             </SummaryInfoContainer>
-          </section>
+          </EntireSummaryContainer>
           <button>CONTINUE & PAY</button>
         </SummaryContainer>
       </div>
