@@ -115,7 +115,7 @@ export const SummaryTitle = styled.h6`
   color: #000;
 `;
 
-export const SummaryProdyuctsContainer = styled.section`
+export const SummaryProductsContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
@@ -161,4 +161,17 @@ export const SummaryProductAmount = styled.p`
 export const SummaryImg = styled.img`
   width: 6.4rem;
   object-fit: contain;
+`;
+
+export const SummaryInfoContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const SummaryInfoText = styled.p`
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.67;
+  color: #000;
+  opacity: 0.5;
 `;

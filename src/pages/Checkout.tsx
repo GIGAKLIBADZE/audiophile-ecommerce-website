@@ -3,15 +3,6 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store";
 import { IItem } from "../types/types";
 import {
-  AddedProduct,
-  AddedProductImg,
-  AddedProductName,
-  AddedProductPrice,
-  AmountContainer,
-  ProductAndPriceContainer,
-} from "../components/cart/CartStyles";
-import { useDispatch } from "react-redux";
-import {
   BillingDetailsPart,
   CheckoutContaienr,
   CheckoutLabel,
@@ -27,14 +18,16 @@ import {
   ShippingDetailPart,
   SummaryContainer,
   SummaryImg,
+  SummaryInfoContainer,
+  SummaryInfoText,
   SummaryProductAmount,
   SummaryProductContainer,
   SummaryProductInnerContainer,
   SummaryProductPrice,
   SummaryProductTitle,
-  SummaryProdyuctsContainer,
+  SummaryProductsContainer,
   SummaryTitle,
-} from "../components/checkout/checkoutStyles";
+} from "../components//checkout/checkoutStyles";
 
 const Checkout: React.FC = () => {
   const amountOfProducts = useSelector(
@@ -49,6 +42,8 @@ const Checkout: React.FC = () => {
   const totalPrice = filteredProducts.reduce((sum: number, item: IItem) => {
     return sum + item.price * amountOfProducts[item.slug];
   }, 0);
+
+  const grandTotal = totalPrice + 50;
 
   return (
     <CheckoutMainContainer>
@@ -166,7 +161,7 @@ const Checkout: React.FC = () => {
         </CheckoutContaienr>
         <SummaryContainer>
           <SummaryTitle>SUMMARY</SummaryTitle>
-          <SummaryProdyuctsContainer>
+          <SummaryProductsContainer>
             {filteredProducts.map((item: IItem) => (
               <SummaryProductContainer key={item.id}>
                 <SummaryImg src={item.image.mobile} alt="Product" />
@@ -183,30 +178,30 @@ const Checkout: React.FC = () => {
                 </SummaryProductInnerContainer>
               </SummaryProductContainer>
             ))}
-          </SummaryProdyuctsContainer>
+          </SummaryProductsContainer>
           <section>
             <div>
-              <div>
-                <p>TOTAL</p>
+              <SummaryInfoContainer>
+                <SummaryInfoText>TOTAL</SummaryInfoText>
                 <strong>{totalPrice.toLocaleString()}</strong>
-              </div>
-              <div>
-                <p>SHIPPING</p>
+              </SummaryInfoContainer>
+              <SummaryInfoContainer>
+                <SummaryInfoText>SHIPPING</SummaryInfoText>
                 <strong>$50</strong>
-              </div>
-              <div>
-                <p>VAT (INCLUDED)</p>
+              </SummaryInfoContainer>
+              <SummaryInfoContainer>
+                <SummaryInfoText>VAT (INCLUDED)</SummaryInfoText>
                 <strong>
                   {Number(
                     ((totalPrice * 0.247) / 1.247).toFixed()
                   ).toLocaleString()}
                 </strong>
-              </div>
+              </SummaryInfoContainer>
             </div>
-            <div>
-              <p>GRAND TOTAL</p>
-              <strong></strong>
-            </div>
+            <SummaryInfoContainer>
+              <SummaryInfoText>GRAND TOTAL</SummaryInfoText>
+              <strong>{Number(grandTotal.toFixed()).toLocaleString()}</strong>
+            </SummaryInfoContainer>
           </section>
           <button>CONTINUE & PAY</button>
         </SummaryContainer>
