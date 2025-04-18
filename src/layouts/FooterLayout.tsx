@@ -16,28 +16,33 @@ import {
   FooterFirstContainer,
 } from "../components/home/FooterLayoutStyles";
 import BestGear from "/images/shared/mobile/image-best-gear.jpg";
+import { useLocation } from "react-router-dom";
 
 const FooterLayout: React.FC = () => {
+  const location = useLocation();
   return (
     <div>
-      <FooterFirstContainer>
-        <ImageContainer>
-          <Image src={BestGear} alt="Best gear" />
-        </ImageContainer>
-        <div>
-          <Ad>
-            BRINGING YOU THE <AdLight>BEST</AdLight> AUDIO GEAR
-          </Ad>
-          <Description>
-            Located at the heart of New York City, Audiophile is the premier
-            store for high end headphones, earphones, speakers, and audio
-            accessories. We have a large showroom and luxury demonstration rooms
-            available for you to browse and experience a wide range of our
-            products. Stop by our store to meet some of the fantastic people who
-            make Audiophile the best place to buy your portable audio equipment.
-          </Description>
-        </div>
-      </FooterFirstContainer>
+      {location.pathname !== "/checkout" ? (
+        <FooterFirstContainer>
+          <ImageContainer>
+            <Image src={BestGear} alt="Best gear" />
+          </ImageContainer>
+          <div>
+            <Ad>
+              BRINGING YOU THE <AdLight>BEST</AdLight> AUDIO GEAR
+            </Ad>
+            <Description>
+              Located at the heart of New York City, Audiophile is the premier
+              store for high end headphones, earphones, speakers, and audio
+              accessories. We have a large showroom and luxury demonstration
+              rooms available for you to browse and experience a wide range of
+              our products. Stop by our store to meet some of the fantastic
+              people who make Audiophile the best place to buy your portable
+              audio equipment.
+            </Description>
+          </div>
+        </FooterFirstContainer>
+      ) : null}
       <FooterSecondContainer>
         <div>
           <img src={Title} alt="Title" />
