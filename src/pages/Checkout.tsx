@@ -4,7 +4,7 @@ import { RootState } from "../store";
 import { IItem } from "../types/types";
 import {
   BillingDetailsPart,
-  CheckoutContaienr,
+  CheckoutContainer,
   CheckoutLabel,
   CheckoutMainContainer,
   CheckoutTitle,
@@ -34,6 +34,8 @@ import {
 } from "../components/checkout/CheckoutStyles";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IForm } from "../types/types";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 const Checkout: React.FC = () => {
   const amountOfProducts = useSelector(
@@ -51,26 +53,35 @@ const Checkout: React.FC = () => {
 
   const grandTotal = totalPrice + 50;
 
+  const schema = yup
+    .object({
+      name: yup.string().required("Required!"),
+    })
+    .required();
+
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<IForm>();
+  } = useForm<IForm>({ resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<IForm> = (data) => console.log(data);
+  const manualSubmit = handleSubmit(onSubmit);
+  const name = watch("name");
 
   return (
     <CheckoutMainContainer>
       <GoBack>Go Back</GoBack>
       <div>
-        <CheckoutContaienr>
+        <CheckoutContainer>
           <CheckoutTitle>CHECKOUT</CheckoutTitle>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form>
             <DetailsPartContainer>
               <DetailedTitle>BILLING DETAILS</DetailedTitle>
               <BillingDetailsPart>
                 <InputContainer>
+                  {name}
                   <CheckoutLabel htmlFor="name">Name</CheckoutLabel>
                   <InputItself
                     type="text"
@@ -78,6 +89,11 @@ const Checkout: React.FC = () => {
                     placeholder="Alexei Ward"
                     {...register("name")}
                   />
+                  {/* {errors.name?.message ? (
+                    <p className="text-[2rem] text-red">Wrong format</p>
+                  ) : null} */}
+                  {/* <p className="text-[2rem] text-red">{errors.name?.message}</p> */}
+                  {errors.name && <p>errors.name.message</p>}
                 </InputContainer>
                 <InputContainer>
                   <CheckoutLabel htmlFor="email">Email Address</CheckoutLabel>
@@ -181,7 +197,7 @@ const Checkout: React.FC = () => {
               </InputContainer>
             </DetailsPartContainer>
           </form>
-        </CheckoutContaienr>
+        </CheckoutContainer>
         <SummaryContainer>
           <SummaryTitle>SUMMARY</SummaryTitle>
           <SummaryProductsContainer>
@@ -235,7 +251,7 @@ const Checkout: React.FC = () => {
               </SummaryPrice>
             </SummaryInfoContainer>
           </EntireSummaryContainer>
-          <ContinuePayBtn>CONTINUE & PAY</ContinuePayBtn>
+          <ContinuePayBtn onClick={manualSubmit}>CONTINUE & PAY</ContinuePayBtn>
         </SummaryContainer>
       </div>
     </CheckoutMainContainer>

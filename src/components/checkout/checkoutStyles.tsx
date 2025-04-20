@@ -6,7 +6,7 @@ export const CheckoutMainContainer = styled.div`
   margin-top: 1.6rem;
 `;
 
-export const CheckoutContaienr = styled.div`
+export const CheckoutContainer = styled.div`
   border-radius: 8px;
   padding: 2.4rem 2.4rem 3.1rem 2.3rem;
   background-color: #fff;
