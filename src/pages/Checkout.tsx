@@ -76,6 +76,7 @@ const Checkout: React.FC = () => {
                     type="text"
                     id="name"
                     placeholder="Alexei Ward"
+                    {...register("name")}
                   />
                 </InputContainer>
                 <InputContainer>
@@ -84,6 +85,7 @@ const Checkout: React.FC = () => {
                     type="text"
                     id="email"
                     placeholder="alexei@mail.com"
+                    {...register("email")}
                   />
                 </InputContainer>
                 <InputContainer>
@@ -92,6 +94,7 @@ const Checkout: React.FC = () => {
                     type="text"
                     id="phone"
                     placeholder="+1 202-555-0136"
+                    {...register("phone")}
                   />
                 </InputContainer>
               </BillingDetailsPart>
@@ -105,6 +108,7 @@ const Checkout: React.FC = () => {
                     type="text"
                     id="address"
                     placeholder="1137 Williams Avenue"
+                    {...register("address")}
                   />
                 </InputContainer>
                 <InputContainer>
@@ -113,6 +117,7 @@ const Checkout: React.FC = () => {
                     type="number"
                     id="zip-code"
                     placeholder="10001"
+                    {...register("zipCode")}
                   />
                 </InputContainer>
                 <InputContainer>
@@ -125,6 +130,7 @@ const Checkout: React.FC = () => {
                     type="text"
                     id="country"
                     placeholder="United States"
+                    {...register("country")}
                   />
                 </InputContainer>
               </ShippingDetailPart>
@@ -139,15 +145,15 @@ const Checkout: React.FC = () => {
                     <div>
                       <input
                         type="radio"
-                        name="payment-method"
                         defaultChecked
+                        {...register("paymentMethod")}
                       />
                     </div>
                     <PaymentMethodText>e-Money</PaymentMethodText>
                   </PaymentMethod>
                   <PaymentMethod>
                     <div>
-                      <input type="radio" name="payment-method" />
+                      <input type="radio" {...register("paymentMethod")} />
                     </div>
                     <PaymentMethodText>Cash on Delivery</PaymentMethodText>
                   </PaymentMethod>
@@ -161,6 +167,7 @@ const Checkout: React.FC = () => {
                   type="number"
                   id="e-money-num"
                   placeholder="238521993"
+                  {...register("eMoneyNum")}
                 />
               </InputContainer>
               <InputContainer>
@@ -169,6 +176,7 @@ const Checkout: React.FC = () => {
                   type="number"
                   id="e-money-pin"
                   placeholder="6891"
+                  {...register("eMoneyPin")}
                 />
               </InputContainer>
             </DetailsPartContainer>
