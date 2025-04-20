@@ -33,6 +33,7 @@ import {
   UpperSummaryContainer,
 } from "../components/checkout/CheckoutStyles";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { IForm } from "../types/types";
 
 const Checkout: React.FC = () => {
   const amountOfProducts = useSelector(
@@ -50,13 +51,22 @@ const Checkout: React.FC = () => {
 
   const grandTotal = totalPrice + 50;
 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<IForm>();
+
+  const onSubmit: SubmitHandler<IForm> = (data) => console.log(data);
+
   return (
     <CheckoutMainContainer>
       <GoBack>Go Back</GoBack>
       <div>
         <CheckoutContaienr>
           <CheckoutTitle>CHECKOUT</CheckoutTitle>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <DetailsPartContainer>
               <DetailedTitle>BILLING DETAILS</DetailedTitle>
               <BillingDetailsPart>
