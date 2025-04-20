@@ -31,7 +31,8 @@ import {
   SummaryProductsContainer,
   SummaryTitle,
   UpperSummaryContainer,
-} from "../components//checkout/checkoutStyles";
+} from "../components/checkout/CheckoutStyles";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 const Checkout: React.FC = () => {
   const amountOfProducts = useSelector(

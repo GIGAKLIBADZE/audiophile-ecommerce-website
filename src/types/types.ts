@@ -44,3 +44,16 @@ export interface IItem {
     gallery: TGalleryItem;
     other: TOtherItem[];
 }
+
+export interface IForm {
+    name: string;
+    email: string;
+    phone: number;
+    address: string;
+    zipCode: number;
+    city: string;
+    country: string;
+    eMoneyNum?: number;
+    eMoneyPin?: number;
+    paymentMethod: "e-money" | "Cash on Delivery"
+}
