@@ -40,6 +40,7 @@ export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
+  position: relative;
 `;
 
 export const InputItself = styled.input`
@@ -207,4 +208,14 @@ export const ContinuePayBtn = styled.button`
   letter-spacing: 1px;
   color: #fff;
   border: none;
+`;
+
+export const ErrorText = styled.p`
+  position: absolute;
+  right: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.21px;
+  color: #cd2c2c;
 `;

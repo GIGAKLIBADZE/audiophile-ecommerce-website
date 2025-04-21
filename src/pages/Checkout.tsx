@@ -12,6 +12,7 @@ import {
   DetailedTitle,
   DetailsPartContainer,
   EntireSummaryContainer,
+  ErrorText,
   InputContainer,
   InputItself,
   PaymentDetailsDetailPart,
@@ -55,7 +56,9 @@ const Checkout: React.FC = () => {
 
   const schema = yup
     .object({
-      name: yup.string().required("Required!"),
+      name: yup.string().required("Name is required!"),
+      email: yup.string().email("Wrong format!").required("Email is required!"),
+      phone: yup.number().required("Phone is required!"),
     })
     .required();
 
@@ -68,7 +71,6 @@ const Checkout: React.FC = () => {
 
   const onSubmit: SubmitHandler<IForm> = (data) => console.log(data);
   const manualSubmit = handleSubmit(onSubmit);
-  const name = watch("name");
 
   return (
     <CheckoutMainContainer>
@@ -81,7 +83,6 @@ const Checkout: React.FC = () => {
               <DetailedTitle>BILLING DETAILS</DetailedTitle>
               <BillingDetailsPart>
                 <InputContainer>
-                  {name}
                   <CheckoutLabel htmlFor="name">Name</CheckoutLabel>
                   <InputItself
                     type="text"
@@ -89,11 +90,8 @@ const Checkout: React.FC = () => {
                     placeholder="Alexei Ward"
                     {...register("name")}
                   />
-                  {/* {errors.name?.message ? (
-                    <p className="text-[2rem] text-red">Wrong format</p>
-                  ) : null} */}
-                  {/* <p className="text-[2rem] text-red">{errors.name?.message}</p> */}
-                  {errors.name && <p>errors.name.message</p>}
+
+                  {errors.name && <ErrorText>{errors.name.message}</ErrorText>}
                 </InputContainer>
                 <InputContainer>
                   <CheckoutLabel htmlFor="email">Email Address</CheckoutLabel>
@@ -103,6 +101,9 @@ const Checkout: React.FC = () => {
                     placeholder="alexei@mail.com"
                     {...register("email")}
                   />
+                  {errors.email && (
+                    <ErrorText>{errors.email.message}</ErrorText>
+                  )}
                 </InputContainer>
                 <InputContainer>
                   <CheckoutLabel htmlFor="phone">Phone Number</CheckoutLabel>
@@ -112,6 +113,9 @@ const Checkout: React.FC = () => {
                     placeholder="+1 202-555-0136"
                     {...register("phone")}
                   />
+                  {errors.phone && (
+                    <ErrorText>{errors.phone.message}</ErrorText>
+                  )}
                 </InputContainer>
               </BillingDetailsPart>
             </DetailsPartContainer>
