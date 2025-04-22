@@ -73,6 +73,8 @@ const Checkout: React.FC = () => {
         .required("Zip code is required!"),
       city: yup.string().required("City is required!"),
       country: yup.string().required("Country is required!"),
+      eMoneyNum: yup.string().max(20, "Too many digits."),
+      eMoneyPin: yup.string().max(10, "Too many digits"),
     })
     .required();
 

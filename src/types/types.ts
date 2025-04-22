@@ -53,7 +53,7 @@ export interface IForm {
     zipCode: string;
     city: string;
     country: string;
-    eMoneyNum?: number;
-    eMoneyPin?: number;
-    paymentMethod: "e-money" | "Cash on Delivery"
+     paymentMethod: "e-money" | "Cash on Delivery"
+    eMoneyNum?: string;
+    eMoneyPin?: string;
 }
