@@ -50,7 +50,7 @@ export interface IForm {
     email: string;
     phone: number;
     address: string;
-    zipCode: number;
+    zipCode: string;
     city: string;
     country: string;
     eMoneyNum?: number;

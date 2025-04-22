@@ -58,7 +58,21 @@ const Checkout: React.FC = () => {
     .object({
       name: yup.string().required("Name is required!"),
       email: yup.string().email("Wrong format!").required("Email is required!"),
-      phone: yup.number().required("Phone is required!"),
+      phone: yup
+        .string()
+
+        .required("Phone is required!")
+        .matches(
+          /^\+?[0-9]{1,3}[-\s.]?(\(?\d{1,4}\)?)[-\s.]?\d{1,4}([-\s.]?\d{1,9}){1,2}$/,
+          "Wrong Format!"
+        ),
+      address: yup.string().required("Address is required!"),
+      zipCode: yup
+        .string()
+        .max(10, "Too many digits.")
+        .required("Zip code is required!"),
+      city: yup.string().required("City is required!"),
+      country: yup.string().required("Country is required!"),
     })
     .required();
 
@@ -108,10 +122,16 @@ const Checkout: React.FC = () => {
                 <InputContainer>
                   <CheckoutLabel htmlFor="phone">Phone Number</CheckoutLabel>
                   <InputItself
-                    type="text"
+                    type="string"
                     id="phone"
                     placeholder="+1 202-555-0136"
                     {...register("phone")}
+                    onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                      e.currentTarget.value = e.currentTarget.value.replace(
+                        /[^0-9+-]/g,
+                        ""
+                      );
+                    }}
                   />
                   {errors.phone && (
                     <ErrorText>{errors.phone.message}</ErrorText>
@@ -130,6 +150,9 @@ const Checkout: React.FC = () => {
                     placeholder="1137 Williams Avenue"
                     {...register("address")}
                   />
+                  {errors.address && (
+                    <ErrorText>{errors.address.message}</ErrorText>
+                  )}
                 </InputContainer>
                 <InputContainer>
                   <CheckoutLabel htmlFor="zip-code">Zip Code</CheckoutLabel>
@@ -139,6 +162,9 @@ const Checkout: React.FC = () => {
                     placeholder="10001"
                     {...register("zipCode")}
                   />
+                  {errors.zipCode && (
+                    <ErrorText>{errors.zipCode.message}</ErrorText>
+                  )}
                 </InputContainer>
                 <InputContainer>
                   <CheckoutLabel htmlFor="city">City</CheckoutLabel>
