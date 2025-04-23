@@ -16,8 +16,10 @@ import {
   InputContainer,
   InputItself,
   PaymentDetailsDetailPart,
+  PaymentLabel,
   PaymentMethod,
   PaymentMethodText,
+  PaymentMethodTitle,
   ShippingDetailPart,
   SummaryContainer,
   SummaryImg,
@@ -73,8 +75,22 @@ const Checkout: React.FC = () => {
         .required("Zip code is required!"),
       city: yup.string().required("City is required!"),
       country: yup.string().required("Country is required!"),
-      eMoneyNum: yup.string().max(20, "Too many digits."),
-      eMoneyPin: yup.string().max(10, "Too many digits"),
+      eMoneyNum: yup
+        .string()
+        .max(20, "Too many digits.")
+        .when("paymentMethod", {
+          is: (val: string) => val === "e-Money",
+          then: (schema) => schema.required("e-Money PIN is required!"),
+          otherwise: (schema) => schema.notRequired(),
+        }),
+      eMoneyPin: yup
+        .string()
+        .max(10, "Too many digits")
+        .when("paymentMethod", {
+          is: (val: string) => val === "e-Money",
+          then: (schema) => schema.required("e-Money number is required!"),
+          otherwise: (schema) => schema.notRequired(),
+        }),
     })
     .required();
 
@@ -87,6 +103,9 @@ const Checkout: React.FC = () => {
 
   const onSubmit: SubmitHandler<IForm> = (data) => console.log(data);
   const manualSubmit = handleSubmit(onSubmit);
+
+  const paymentMethod = watch("paymentMethod");
+  const isCashOnDelivery = paymentMethod === "Cash on Delivery";
 
   return (
     <CheckoutMainContainer>
@@ -128,8 +147,11 @@ const Checkout: React.FC = () => {
                   )}
                 </InputContainer>
                 <InputContainer>
-                  <CheckoutLabel htmlFor="phone">Phone Number</CheckoutLabel>
+                  <CheckoutLabel $hasError={!!errors.phone} htmlFor="phone">
+                    Phone Number
+                  </CheckoutLabel>
                   <InputItself
+                    $hasError={!!errors.phone}
                     type="string"
                     id="phone"
                     placeholder="+1 202-555-0136"
@@ -151,8 +173,11 @@ const Checkout: React.FC = () => {
               <DetailedTitle>SHIPPING INFO</DetailedTitle>
               <ShippingDetailPart>
                 <InputContainer>
-                  <CheckoutLabel htmlFor="address">Your Address</CheckoutLabel>
+                  <CheckoutLabel $hasError={!!errors.address} htmlFor="address">
+                    Your Address
+                  </CheckoutLabel>
                   <InputItself
+                    $hasError={!!errors.address}
                     type="text"
                     id="address"
                     placeholder="1137 Williams Avenue"
@@ -163,9 +188,15 @@ const Checkout: React.FC = () => {
                   )}
                 </InputContainer>
                 <InputContainer>
-                  <CheckoutLabel htmlFor="zip-code">Zip Code</CheckoutLabel>
+                  <CheckoutLabel
+                    $hasError={!!errors.zipCode}
+                    htmlFor="zip-code"
+                  >
+                    Zip Code
+                  </CheckoutLabel>
                   <InputItself
-                    type="number"
+                    $hasError={!!errors.zipCode}
+                    type="string"
                     id="zip-code"
                     placeholder="10001"
                     {...register("zipCode")}
@@ -175,17 +206,32 @@ const Checkout: React.FC = () => {
                   )}
                 </InputContainer>
                 <InputContainer>
-                  <CheckoutLabel htmlFor="city">City</CheckoutLabel>
-                  <InputItself type="text" id="city" placeholder="New York" />
+                  <CheckoutLabel $hasError={!!errors.city} htmlFor="city">
+                    City
+                  </CheckoutLabel>
+                  <InputItself
+                    $hasError={!!errors.city}
+                    type="text"
+                    id="city"
+                    placeholder="New York"
+                    {...register("city")}
+                  />
+                  {errors.city && <ErrorText>{errors.city.message}</ErrorText>}
                 </InputContainer>
                 <InputContainer>
-                  <CheckoutLabel htmlFor="country">Country</CheckoutLabel>
+                  <CheckoutLabel $hasError={!!errors.country} htmlFor="country">
+                    Country
+                  </CheckoutLabel>
                   <InputItself
+                    $hasError={!!errors.country}
                     type="text"
                     id="country"
                     placeholder="United States"
                     {...register("country")}
                   />
+                  {errors.country && (
+                    <ErrorText>{errors.country.message}</ErrorText>
+                  )}
                 </InputContainer>
               </ShippingDetailPart>
             </DetailsPartContainer>
@@ -194,11 +240,12 @@ const Checkout: React.FC = () => {
 
               <div>
                 <PaymentDetailsDetailPart>
-                  <CheckoutLabel>Payment Method</CheckoutLabel>
+                  <PaymentMethodTitle>Payment Method</PaymentMethodTitle>
                   <PaymentMethod>
                     <div>
                       <input
                         type="radio"
+                        value="e-Money"
                         defaultChecked
                         {...register("paymentMethod")}
                       />
@@ -207,31 +254,53 @@ const Checkout: React.FC = () => {
                   </PaymentMethod>
                   <PaymentMethod>
                     <div>
-                      <input type="radio" {...register("paymentMethod")} />
+                      <input
+                        type="radio"
+                        value="Cash on Delivery"
+                        {...register("paymentMethod")}
+                      />
                     </div>
                     <PaymentMethodText>Cash on Delivery</PaymentMethodText>
                   </PaymentMethod>
                 </PaymentDetailsDetailPart>
               </div>
               <InputContainer>
-                <CheckoutLabel htmlFor="e-money-num">
+                <CheckoutLabel
+                  $hasError={!!errors.eMoneyNum}
+                  htmlFor="eMoneyNum"
+                >
                   e-Money Number
                 </CheckoutLabel>
                 <InputItself
-                  type="number"
-                  id="e-money-num"
+                  readOnly={isCashOnDelivery}
+                  $hasError={!!errors.eMoneyNum}
+                  type="string"
+                  id="eMoneyNum"
                   placeholder="238521993"
                   {...register("eMoneyNum")}
                 />
+                {errors.eMoneyNum && (
+                  <ErrorText>{errors.eMoneyNum.message}</ErrorText>
+                )}
               </InputContainer>
               <InputContainer>
-                <CheckoutLabel htmlFor="e-money-pin">e-Money Pin</CheckoutLabel>
+                <CheckoutLabel
+                  $hasError={!!errors.eMoneyPin}
+                  htmlFor="eMoneyPin"
+                >
+                  e-Money Pin
+                </CheckoutLabel>
                 <InputItself
-                  type="number"
-                  id="e-money-pin"
+                  readOnly={isCashOnDelivery}
+                  $hasError={!!errors.eMoneyPin}
+                  type="string"
+                  id="eMoneyPin"
                   placeholder="6891"
                   {...register("eMoneyPin")}
                 />
+                {errors.eMoneyPin && (
+                  <ErrorText>{errors.eMoneyPin.message}</ErrorText>
+                )}
               </InputContainer>
             </DetailsPartContainer>
           </form>

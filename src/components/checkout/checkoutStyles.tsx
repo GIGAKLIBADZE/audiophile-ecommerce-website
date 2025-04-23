@@ -33,8 +33,16 @@ export const CheckoutLabel = styled.label<{ $hasError: boolean }>`
   font-weight: bold;
   line-height: normal;
   letter-spacing: -0.21px;
-  /* color: #000; */
+
   color: ${({ $hasError }) => ($hasError ? "#cd2c2c" : "#000")};
+`;
+
+export const PaymentMethodTitle = styled.p`
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: -0.21px;
+  color: #000;
 `;
 
 export const InputContainer = styled.div`
