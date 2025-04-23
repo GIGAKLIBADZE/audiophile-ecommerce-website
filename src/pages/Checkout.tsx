@@ -62,7 +62,6 @@ const Checkout: React.FC = () => {
       email: yup.string().email("Wrong format!").required("Email is required!"),
       phone: yup
         .string()
-
         .required("Phone is required!")
         .matches(
           /^\+?[0-9]{1,3}[-\s.]?(\(?\d{1,4}\)?)[-\s.]?\d{1,4}([-\s.]?\d{1,9}){1,2}$/,
@@ -241,7 +240,7 @@ const Checkout: React.FC = () => {
               <div>
                 <PaymentDetailsDetailPart>
                   <PaymentMethodTitle>Payment Method</PaymentMethodTitle>
-                  <PaymentMethod>
+                  <PaymentMethod $checked={paymentMethod === "e-Money"}>
                     <div>
                       <input
                         type="radio"
@@ -252,7 +251,9 @@ const Checkout: React.FC = () => {
                     </div>
                     <PaymentMethodText>e-Money</PaymentMethodText>
                   </PaymentMethod>
-                  <PaymentMethod>
+                  <PaymentMethod
+                    $checked={paymentMethod === "Cash on Delivery"}
+                  >
                     <div>
                       <input
                         type="radio"

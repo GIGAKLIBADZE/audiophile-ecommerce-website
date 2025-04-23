@@ -86,10 +86,10 @@ export const ShippingDetailPart = styled(BillingDetailsPart)``;
 
 export const PaymentDetailsDetailPart = styled(BillingDetailsPart)``;
 
-export const PaymentMethod = styled.div`
+export const PaymentMethod = styled.div<{ $checked: boolean }>`
   height: 5.6rem;
   border-radius: 8px;
-  border: solid 1px #d87d4a;
+  border: solid 0.1rem ${({ $checked }) => ($checked ? "#d87d4a" : "#cfcfcf")};
   background-color: #fff;
   padding-top: 1.8rem;
   padding-bottom: 1.9rem;
