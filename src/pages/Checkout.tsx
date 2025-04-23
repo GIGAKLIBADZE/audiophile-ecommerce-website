@@ -99,8 +99,11 @@ const Checkout: React.FC = () => {
               <DetailedTitle>BILLING DETAILS</DetailedTitle>
               <BillingDetailsPart>
                 <InputContainer>
-                  <CheckoutLabel htmlFor="name">Name</CheckoutLabel>
+                  <CheckoutLabel $hasError={!!errors.name} htmlFor="name">
+                    Name
+                  </CheckoutLabel>
                   <InputItself
+                    $hasError={!!errors.name}
                     type="text"
                     id="name"
                     placeholder="Alexei Ward"
@@ -110,8 +113,11 @@ const Checkout: React.FC = () => {
                   {errors.name && <ErrorText>{errors.name.message}</ErrorText>}
                 </InputContainer>
                 <InputContainer>
-                  <CheckoutLabel htmlFor="email">Email Address</CheckoutLabel>
+                  <CheckoutLabel $hasError={!!errors.email} htmlFor="email">
+                    Email Address
+                  </CheckoutLabel>
                   <InputItself
+                    $hasError={!!errors.email}
                     type="text"
                     id="email"
                     placeholder="alexei@mail.com"

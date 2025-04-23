@@ -28,12 +28,13 @@ export const DetailedTitle = styled.p`
   color: #d87d4a;
 `;
 
-export const CheckoutLabel = styled.label`
+export const CheckoutLabel = styled.label<{ $hasError: boolean }>`
   font-size: 1.2rem;
   font-weight: bold;
   line-height: normal;
   letter-spacing: -0.21px;
-  color: #000;
+  /* color: #000; */
+  color: ${({ $hasError }) => ($hasError ? "#cd2c2c" : "#000")};
 `;
 
 export const InputContainer = styled.div`
@@ -43,11 +44,11 @@ export const InputContainer = styled.div`
   position: relative;
 `;
 
-export const InputItself = styled.input`
+export const InputItself = styled.input<{ $hasError: boolean }>`
   height: 5.6rem;
   border-radius: 8px;
-  border: solid 1px #cfcfcf;
   background-color: #fff;
+  border: solid 0.1rem ${({ $hasError }) => ($hasError ? "#cd2c2c" : "#cfcfcf")};
   padding-top: 1.8rem;
   padding-bottom: 1.9rem;
   padding-left: 2.4rem;
