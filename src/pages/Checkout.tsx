@@ -97,13 +97,14 @@ const Checkout: React.FC = () => {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm<IForm>({ resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<IForm> = (data) => console.log(data);
   const manualSubmit = handleSubmit(onSubmit);
 
-  const paymentMethod = watch("paymentMethod");
+  let paymentMethod = watch("paymentMethod");
   const isCashOnDelivery = paymentMethod === "Cash on Delivery";
 
   return (
@@ -240,7 +241,10 @@ const Checkout: React.FC = () => {
               <div>
                 <PaymentDetailsDetailPart>
                   <PaymentMethodTitle>Payment Method</PaymentMethodTitle>
-                  <PaymentMethod $checked={paymentMethod === "e-Money"}>
+                  <PaymentMethod
+                    $checked={paymentMethod === "e-Money"}
+                    onClick={() => setValue("paymentMethod", "e-Money")}
+                  >
                     <div>
                       <input
                         type="radio"
@@ -253,6 +257,9 @@ const Checkout: React.FC = () => {
                   </PaymentMethod>
                   <PaymentMethod
                     $checked={paymentMethod === "Cash on Delivery"}
+                    onClick={() =>
+                      setValue("paymentMethod", "Cash on Delivery")
+                    }
                   >
                     <div>
                       <input

@@ -96,6 +96,9 @@ export const PaymentMethod = styled.div<{ $checked: boolean }>`
   padding-left: 1.6rem;
   display: flex;
   gap: 1.6rem;
+
+  &:checked > input {
+  }
 `;
 
 export const PaymentMethodText = styled.p`
