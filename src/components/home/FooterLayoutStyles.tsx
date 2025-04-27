@@ -7,7 +7,6 @@ export const FooterSecondContainer = styled.footer`
   align-items: center;
   padding: 5.2rem 2.4rem 3.8rem;
   background-color: #101010;
-  margin-top: 12rem;
   position: relative;
   z-index: 2;
 

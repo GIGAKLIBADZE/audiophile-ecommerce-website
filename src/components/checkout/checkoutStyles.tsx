@@ -3,10 +3,13 @@ import styled from "styled-components";
 export const CheckoutMainContainer = styled.div`
   width: 87.2%;
   margin-inline: auto;
-  margin-top: 1.6rem;
+  padding-top: 1.6rem;
+  padding-bottom: 12.9rem;
 
   @media (min-width: 768px) {
     width: 89.6%;
+    padding-top: 4.8rem;
+    padding-bottom: 14.8rem;
   }
 `;
 
@@ -18,7 +21,6 @@ export const ContextsDivider = styled.div`
 
 export const CheckoutContainer = styled.div`
   border-radius: 8px;
-
   padding: 2.4rem 2.4rem 3.1rem 2.3rem;
   background-color: #fff;
 
