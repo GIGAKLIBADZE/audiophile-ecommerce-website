@@ -4,6 +4,10 @@ export const CheckoutMainContainer = styled.div`
   width: 87.2%;
   margin-inline: auto;
   margin-top: 1.6rem;
+
+  @media (min-width: 768px) {
+    width: 89.6%;
+  }
 `;
 
 export const ContextsDivider = styled.div`
@@ -14,8 +18,13 @@ export const ContextsDivider = styled.div`
 
 export const CheckoutContainer = styled.div`
   border-radius: 8px;
+
   padding: 2.4rem 2.4rem 3.1rem 2.3rem;
   background-color: #fff;
+
+  @media (min-width: 768px) {
+    padding: 3rem 2.7rem 3rem 2.75rem;
+  }
 `;
 
 export const CheckoutTitle = styled.div`
@@ -82,20 +91,12 @@ export const InputItself = styled.input<{ $hasError: boolean }>`
   }
 `;
 
+export const Form = styled.form``;
+
 export const DetailsPartContainer = styled.div`
   display: grid;
   gap: 1.6rem;
   margin-top: 3.2rem;
-
-  @media (min-width: 768px) {
-    & > :nth-child(4) {
-      grid-column: 1 / 2;
-    }
-
-    & > :nth-child(5) {
-      grid-column: 2 / 3;
-    }
-  }
 `;
 
 export const BillingDetailsPart = styled.div`
@@ -120,7 +121,6 @@ export const ShippingDetailPart = styled(BillingDetailsPart)`
 
   & > :nth-child(4) {
     grid-column: 1 / 2;
-    width: 100%;
   }
 `;
 
@@ -166,6 +166,10 @@ export const SummaryContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  @media (min-width: 768px) {
+    padding-inline: 3.3rem;
+  }
 `;
 
 export const SummaryTitle = styled.h6`

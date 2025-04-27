@@ -15,6 +15,7 @@ import {
   EMoneyDetailsPart,
   EntireSummaryContainer,
   ErrorText,
+  Form,
   InputContainer,
   InputItself,
   PaymentDetailsDetailPart,
@@ -114,8 +115,8 @@ const Checkout: React.FC = () => {
       <ContextsDivider>
         <CheckoutContainer>
           <CheckoutTitle>CHECKOUT</CheckoutTitle>
-          <form>
-            <DetailsPartContainer>
+          <Form>
+            <DetailsPartContainer className="default-margin">
               <DetailedTitle>BILLING DETAILS</DetailedTitle>
               <BillingDetailsPart>
                 <InputContainer>
@@ -310,7 +311,7 @@ const Checkout: React.FC = () => {
                 )}
               </InputContainer>
             </EMoneyDetailsPart>
-          </form>
+          </Form>
         </CheckoutContainer>
         <SummaryContainer>
           <SummaryTitle>SUMMARY</SummaryTitle>
