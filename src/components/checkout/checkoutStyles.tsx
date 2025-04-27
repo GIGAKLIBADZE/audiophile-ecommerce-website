@@ -6,6 +6,12 @@ export const CheckoutMainContainer = styled.div`
   margin-top: 1.6rem;
 `;
 
+export const ContextsDivider = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+`;
+
 export const CheckoutContainer = styled.div`
   border-radius: 8px;
   padding: 2.4rem 2.4rem 3.1rem 2.3rem;

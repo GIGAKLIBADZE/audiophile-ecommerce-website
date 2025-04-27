@@ -8,6 +8,7 @@ import {
   CheckoutLabel,
   CheckoutMainContainer,
   CheckoutTitle,
+  ContextsDivider,
   ContinuePayBtn,
   DetailedTitle,
   DetailsPartContainer,
@@ -110,7 +111,7 @@ const Checkout: React.FC = () => {
   return (
     <CheckoutMainContainer>
       <GoBack>Go Back</GoBack>
-      <div>
+      <ContextsDivider>
         <CheckoutContainer>
           <CheckoutTitle>CHECKOUT</CheckoutTitle>
           <form>
@@ -366,7 +367,7 @@ const Checkout: React.FC = () => {
           </EntireSummaryContainer>
           <ContinuePayBtn onClick={manualSubmit}>CONTINUE & PAY</ContinuePayBtn>
         </SummaryContainer>
-      </div>
+      </ContextsDivider>
     </CheckoutMainContainer>
   );
 };
