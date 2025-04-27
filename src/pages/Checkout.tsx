@@ -16,7 +16,6 @@ import {
   InputContainer,
   InputItself,
   PaymentDetailsDetailPart,
-  PaymentLabel,
   PaymentMethod,
   PaymentMethodText,
   PaymentMethodTitle,

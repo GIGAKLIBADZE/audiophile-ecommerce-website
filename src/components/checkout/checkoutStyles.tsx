@@ -18,6 +18,12 @@ export const CheckoutTitle = styled.div`
   line-height: normal;
   letter-spacing: 1px;
   color: #000;
+
+  @media (min-width: 768px) {
+    font-size: 3.2rem;
+    line-height: 1.13;
+    letter-spacing: 1.14px;
+  }
 `;
 
 export const DetailedTitle = styled.p`
@@ -68,6 +74,10 @@ export const InputItself = styled.input<{ $hasError: boolean }>`
   &::placeholder {
     opacity: 0.4;
   }
+
+  @media (min-width: 768px) {
+    width: 30.9rem;
+  }
 `;
 
 export const DetailsPartContainer = styled.div`
@@ -80,6 +90,11 @@ export const DetailsPartContainer = styled.div`
 export const BillingDetailsPart = styled.div`
   display: grid;
   gap: 2.4rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.6rem;
+  }
 `;
 
 export const ShippingDetailPart = styled(BillingDetailsPart)``;
