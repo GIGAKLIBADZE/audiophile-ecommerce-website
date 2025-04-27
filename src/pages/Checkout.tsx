@@ -41,6 +41,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { IForm } from "../types/types";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import React from "react";
 
 const Checkout: React.FC = () => {
   const amountOfProducts = useSelector(
@@ -80,7 +81,7 @@ const Checkout: React.FC = () => {
         .string()
         .when("paymentMethod", {
           is: (val: string) => val === "e-Money",
-          then: (schema) => schema.max(20, "Too many digits."),
+          then: (schema) => schema.max(10, "Too many digits."),
           otherwise: (schema) => schema.notRequired(),
         })
         .when("paymentMethod", {
@@ -100,9 +101,6 @@ const Checkout: React.FC = () => {
           is: (val: string) => val === "e-Money",
           then: (schema) => schema.required("e-Money number is required!"),
           otherwise: (schema) => schema.notRequired(),
-        })
-        .test("max-length", "Too many digitis", (value) => {
-          return value ? value.length <= 10 : true;
         }),
     })
     .required();
@@ -114,7 +112,8 @@ const Checkout: React.FC = () => {
     setValue,
     formState: { errors },
     trigger,
-  } = useForm<IForm>({ resolver: yupResolver(schema), mode: "onChange" });
+    clearErrors,
+  } = useForm<IForm>({ resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<IForm> = (data) => console.log(data);
   const manualSubmit = handleSubmit(onSubmit);
@@ -124,7 +123,11 @@ const Checkout: React.FC = () => {
 
   const onSubmitChange = (paymentMethod: string) => {
     setValue("paymentMethod", paymentMethod as "e-Money" | "Cash on Delivery");
-    trigger();
+    if (paymentMethod === "e-Money") {
+      trigger(["eMoneyNum", "eMoneyPin"]);
+    } else {
+      clearErrors(["eMoneyNum", "eMoneyPin"]);
+    }
   };
 
   return (
@@ -208,18 +211,21 @@ const Checkout: React.FC = () => {
                   )}
                 </InputContainer>
                 <InputContainer>
-                  <CheckoutLabel
-                    $hasError={!!errors.zipCode}
-                    htmlFor="zip-code"
-                  >
+                  <CheckoutLabel $hasError={!!errors.zipCode} htmlFor="zipCode">
                     Zip Code
                   </CheckoutLabel>
                   <InputItself
                     $hasError={!!errors.zipCode}
                     type="string"
-                    id="zip-code"
+                    id="zipCode"
                     placeholder="10001"
                     {...register("zipCode")}
+                    onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                      e.currentTarget.value = e.currentTarget.value.replace(
+                        /[^0-9]/g,
+                        ""
+                      );
+                    }}
                   />
                   {errors.zipCode && (
                     <ErrorText>{errors.zipCode.message}</ErrorText>
@@ -304,6 +310,12 @@ const Checkout: React.FC = () => {
                   id="eMoneyNum"
                   placeholder="238521993"
                   {...register("eMoneyNum")}
+                  onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                    e.currentTarget.value = e.currentTarget.value.replace(
+                      /[^0-9]/g,
+                      ""
+                    );
+                  }}
                 />
                 {errors.eMoneyNum && (
                   <ErrorText>{errors.eMoneyNum.message}</ErrorText>
@@ -323,6 +335,12 @@ const Checkout: React.FC = () => {
                   id="eMoneyPin"
                   placeholder="6891"
                   {...register("eMoneyPin")}
+                  onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                    e.currentTarget.value = e.currentTarget.value.replace(
+                      /[^0-9]/g,
+                      ""
+                    );
+                  }}
                 />
                 {errors.eMoneyPin && (
                   <ErrorText>{errors.eMoneyPin.message}</ErrorText>
