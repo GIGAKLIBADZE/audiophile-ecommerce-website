@@ -74,10 +74,6 @@ export const InputItself = styled.input<{ $hasError: boolean }>`
   &::placeholder {
     opacity: 0.4;
   }
-
-  @media (min-width: 768px) {
-    width: 30.9rem;
-  }
 `;
 
 export const DetailsPartContainer = styled.div`
@@ -97,7 +93,21 @@ export const BillingDetailsPart = styled.div`
   }
 `;
 
-export const ShippingDetailPart = styled(BillingDetailsPart)``;
+export const ShippingDetailPart = styled(BillingDetailsPart)`
+  width: 100%;
+  grid-template-rows: auto auto auto;
+  grid-auto-flow: dense;
+
+  & > :first-child {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  & > :nth-child(4) {
+    grid-column: 1 / 2;
+    width: 100%;
+  }
+`;
 
 export const PaymentDetailsDetailPart = styled(BillingDetailsPart)``;
 
