@@ -78,19 +78,31 @@ const Checkout: React.FC = () => {
       country: yup.string().required("Country is required!"),
       eMoneyNum: yup
         .string()
-        .max(20, "Too many digits.")
+        .when("paymentMethod", {
+          is: (val: string) => val === "e-Money",
+          then: (schema) => schema.max(20, "Too many digits."),
+          otherwise: (schema) => schema.notRequired(),
+        })
         .when("paymentMethod", {
           is: (val: string) => val === "e-Money",
           then: (schema) => schema.required("e-Money PIN is required!"),
           otherwise: (schema) => schema.notRequired(),
         }),
+
       eMoneyPin: yup
         .string()
-        .max(10, "Too many digits")
+        .when("paymentMethod", {
+          is: (val: string) => val === "e-Money",
+          then: (schema) => schema.max(10, "Too many digits."),
+          otherwise: (schema) => schema.notRequired(),
+        })
         .when("paymentMethod", {
           is: (val: string) => val === "e-Money",
           then: (schema) => schema.required("e-Money number is required!"),
           otherwise: (schema) => schema.notRequired(),
+        })
+        .test("max-length", "Too many digitis", (value) => {
+          return value ? value.length <= 10 : true;
         }),
     })
     .required();
@@ -101,13 +113,19 @@ const Checkout: React.FC = () => {
     watch,
     setValue,
     formState: { errors },
-  } = useForm<IForm>({ resolver: yupResolver(schema) });
+    trigger,
+  } = useForm<IForm>({ resolver: yupResolver(schema), mode: "onChange" });
 
   const onSubmit: SubmitHandler<IForm> = (data) => console.log(data);
   const manualSubmit = handleSubmit(onSubmit);
 
   let paymentMethod = watch("paymentMethod");
   const isCashOnDelivery = paymentMethod === "Cash on Delivery";
+
+  const onSubmitChange = (paymentMethod: string) => {
+    setValue("paymentMethod", paymentMethod as "e-Money" | "Cash on Delivery");
+    trigger();
+  };
 
   return (
     <CheckoutMainContainer>
@@ -244,7 +262,7 @@ const Checkout: React.FC = () => {
                 <PaymentMethodTitle>Payment Method</PaymentMethodTitle>
                 <PaymentMethod
                   $checked={paymentMethod === "e-Money"}
-                  onClick={() => setValue("paymentMethod", "e-Money")}
+                  onClick={() => onSubmitChange("e-Money")}
                 >
                   <div>
                     <input
@@ -258,7 +276,7 @@ const Checkout: React.FC = () => {
                 </PaymentMethod>
                 <PaymentMethod
                   $checked={paymentMethod === "Cash on Delivery"}
-                  onClick={() => setValue("paymentMethod", "Cash on Delivery")}
+                  onClick={() => onSubmitChange("Cash on Delivery")}
                 >
                   <div>
                     <input
