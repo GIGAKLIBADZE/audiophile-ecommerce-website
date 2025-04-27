@@ -77,10 +77,19 @@ export const InputItself = styled.input<{ $hasError: boolean }>`
 `;
 
 export const DetailsPartContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1.6rem;
   margin-top: 3.2rem;
+
+  @media (min-width: 768px) {
+    & > :nth-child(4) {
+      grid-column: 1 / 2;
+    }
+
+    & > :nth-child(5) {
+      grid-column: 2 / 3;
+    }
+  }
 `;
 
 export const BillingDetailsPart = styled.div`
@@ -93,11 +102,11 @@ export const BillingDetailsPart = styled.div`
   }
 `;
 
-export const ShippingDetailPart = styled(BillingDetailsPart)`
-  width: 100%;
-  grid-template-rows: auto auto auto;
-  grid-auto-flow: dense;
+export const EMoneyDetailsPart = styled(BillingDetailsPart)`
+  margin-top: 2.4rem;
+`;
 
+export const ShippingDetailPart = styled(BillingDetailsPart)`
   & > :first-child {
     grid-column: 1 / -1;
     width: 100%;
@@ -109,7 +118,15 @@ export const ShippingDetailPart = styled(BillingDetailsPart)`
   }
 `;
 
-export const PaymentDetailsDetailPart = styled(BillingDetailsPart)``;
+export const PaymentDetailsDetailPart = styled(BillingDetailsPart)`
+  gap: 1.6rem;
+
+  @media (min-width: 768px) {
+    & > :nth-child(3) {
+      grid-column: 2 / 3;
+    }
+  }
+`;
 
 export const PaymentMethod = styled.div<{ $checked: boolean }>`
   height: 5.6rem;

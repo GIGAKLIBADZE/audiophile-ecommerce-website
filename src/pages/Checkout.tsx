@@ -11,6 +11,7 @@ import {
   ContinuePayBtn,
   DetailedTitle,
   DetailsPartContainer,
+  EMoneyDetailsPart,
   EntireSummaryContainer,
   ErrorText,
   InputContainer,
@@ -237,40 +238,38 @@ const Checkout: React.FC = () => {
             <DetailsPartContainer>
               <DetailedTitle>PAYMENT DETAILS</DetailedTitle>
 
-              <div>
-                <PaymentDetailsDetailPart>
-                  <PaymentMethodTitle>Payment Method</PaymentMethodTitle>
-                  <PaymentMethod
-                    $checked={paymentMethod === "e-Money"}
-                    onClick={() => setValue("paymentMethod", "e-Money")}
-                  >
-                    <div>
-                      <input
-                        type="radio"
-                        value="e-Money"
-                        defaultChecked
-                        {...register("paymentMethod")}
-                      />
-                    </div>
-                    <PaymentMethodText>e-Money</PaymentMethodText>
-                  </PaymentMethod>
-                  <PaymentMethod
-                    $checked={paymentMethod === "Cash on Delivery"}
-                    onClick={() =>
-                      setValue("paymentMethod", "Cash on Delivery")
-                    }
-                  >
-                    <div>
-                      <input
-                        type="radio"
-                        value="Cash on Delivery"
-                        {...register("paymentMethod")}
-                      />
-                    </div>
-                    <PaymentMethodText>Cash on Delivery</PaymentMethodText>
-                  </PaymentMethod>
-                </PaymentDetailsDetailPart>
-              </div>
+              <PaymentDetailsDetailPart>
+                <PaymentMethodTitle>Payment Method</PaymentMethodTitle>
+                <PaymentMethod
+                  $checked={paymentMethod === "e-Money"}
+                  onClick={() => setValue("paymentMethod", "e-Money")}
+                >
+                  <div>
+                    <input
+                      type="radio"
+                      value="e-Money"
+                      defaultChecked
+                      {...register("paymentMethod")}
+                    />
+                  </div>
+                  <PaymentMethodText>e-Money</PaymentMethodText>
+                </PaymentMethod>
+                <PaymentMethod
+                  $checked={paymentMethod === "Cash on Delivery"}
+                  onClick={() => setValue("paymentMethod", "Cash on Delivery")}
+                >
+                  <div>
+                    <input
+                      type="radio"
+                      value="Cash on Delivery"
+                      {...register("paymentMethod")}
+                    />
+                  </div>
+                  <PaymentMethodText>Cash on Delivery</PaymentMethodText>
+                </PaymentMethod>
+              </PaymentDetailsDetailPart>
+            </DetailsPartContainer>
+            <EMoneyDetailsPart>
               <InputContainer>
                 <CheckoutLabel
                   $hasError={!!errors.eMoneyNum}
@@ -309,7 +308,7 @@ const Checkout: React.FC = () => {
                   <ErrorText>{errors.eMoneyPin.message}</ErrorText>
                 )}
               </InputContainer>
-            </DetailsPartContainer>
+            </EMoneyDetailsPart>
           </form>
         </CheckoutContainer>
         <SummaryContainer>
