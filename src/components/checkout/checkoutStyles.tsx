@@ -23,13 +23,14 @@ export const ContextsDivider = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  margin-top: 2.4rem;
 
   @media (min-width: 1440px) {
     flex-direction: row;
+    margin-top: 3.8rem;
 
     & > :first-child {
       flex: 2;
-      /* flex: 1; */
     }
 
     & > :last-child {
