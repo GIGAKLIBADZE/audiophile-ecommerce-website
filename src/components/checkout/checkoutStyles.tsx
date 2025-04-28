@@ -11,12 +11,31 @@ export const CheckoutMainContainer = styled.div`
     padding-top: 4.8rem;
     padding-bottom: 14.8rem;
   }
+
+  @media (min-width: 1440px) {
+    width: 77.1%;
+    padding-top: 7.9rem;
+    padding-bottom: 14.1rem;
+  }
 `;
 
 export const ContextsDivider = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+
+  @media (min-width: 1440px) {
+    flex-direction: row;
+
+    & > :first-child {
+      flex: 2;
+      /* flex: 1; */
+    }
+
+    & > :last-child {
+      flex: 1;
+    }
+  }
 `;
 
 export const CheckoutContainer = styled.div`
@@ -26,6 +45,10 @@ export const CheckoutContainer = styled.div`
 
   @media (min-width: 768px) {
     padding: 3rem 2.7rem 3rem 2.75rem;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 5.4rem 4.8rem 4.8rem 4.7rem;
   }
 `;
 
