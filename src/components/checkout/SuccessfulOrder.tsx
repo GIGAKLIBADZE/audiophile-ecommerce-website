@@ -5,10 +5,13 @@ import {
   SummaryProductTitle,
   SummaryProductPrice,
   SummaryProductAmount,
+  ActionBtn,
 } from "./CheckoutStyles";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { IItem } from "../../types/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const SuccessfulOrder: React.FC = () => {
   const amountOfProducts = useSelector(
@@ -30,10 +33,7 @@ const SuccessfulOrder: React.FC = () => {
     <div>
       <div>
         <div>
-          {/* <FontAwesomeIcon
-            icon="fa-solid fa-check"
-            style={{ color: "#ffffff" }}
-          /> */}
+          <FontAwesomeIcon icon={faCheck} style={{ color: "#ffffff" }} />
         </div>
         <h6>THANK YOU FOR YOUR ORDER</h6>
         <p>You will receive an email confirmation shortly.</p>
@@ -56,6 +56,11 @@ const SuccessfulOrder: React.FC = () => {
               </SummaryProductContainer>
             ))}
           </div>
+          <div>
+            <p>GRAND TOTAL</p>
+            <p>${grandTotal.toLocaleString()}</p>
+          </div>
+          <ActionBtn>BACK TO HOME</ActionBtn>
         </div>
       </div>
     </div>

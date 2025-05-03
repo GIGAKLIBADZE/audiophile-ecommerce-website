@@ -288,7 +288,7 @@ export const SummaryPrice = styled.strong`
   gap: 0.4rem;
 `;
 
-export const ContinuePayBtn = styled.button`
+export const ActionBtn = styled.button`
   width: 100%;
   height: 4.8rem;
   background-color: #d87d4a;

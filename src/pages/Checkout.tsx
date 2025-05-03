@@ -10,7 +10,7 @@ import {
   CheckoutMainContainer,
   CheckoutTitle,
   ContextsDivider,
-  ContinuePayBtn,
+  ActionBtn,
   DetailedTitle,
   DetailsPartContainer,
   EMoneyDetailsPart,
@@ -420,9 +420,7 @@ const Checkout: React.FC = () => {
                 </SummaryPrice>
               </SummaryInfoContainer>
             </EntireSummaryContainer>
-            <ContinuePayBtn onClick={manualSubmit}>
-              CONTINUE & PAY
-            </ContinuePayBtn>
+            <ActionBtn onClick={manualSubmit}>CONTINUE & PAY</ActionBtn>
           </SummaryContainer>
         </ContextsDivider>
       </CheckoutMainContainer>
