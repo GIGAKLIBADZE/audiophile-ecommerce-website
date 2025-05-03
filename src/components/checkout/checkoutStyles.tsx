@@ -53,7 +53,7 @@ export const CheckoutContainer = styled.div`
   }
 `;
 
-export const CheckoutTitle = styled.div`
+export const CheckoutTitle = styled.h3`
   font-size: 2.8rem;
   font-weight: bold;
   line-height: normal;
