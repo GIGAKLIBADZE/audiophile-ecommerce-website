@@ -37,6 +37,7 @@ import {
   SummaryProductsContainer,
   SummaryTitle,
   UpperSummaryContainer,
+  CheckoutOuterContainer,
 } from "../components/checkout/CheckoutStyles";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { IForm } from "../types/types";
@@ -135,7 +136,7 @@ const Checkout: React.FC = () => {
   };
 
   return (
-    <div>
+    <CheckoutOuterContainer>
       <CheckoutMainContainer>
         <GoBack>Go Back</GoBack>
         <ContextsDivider>
@@ -425,7 +426,7 @@ const Checkout: React.FC = () => {
         </ContextsDivider>
       </CheckoutMainContainer>
       {pay && <SuccessfulOrder />}
-    </div>
+    </CheckoutOuterContainer>
   );
 };
 

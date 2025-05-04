@@ -12,6 +12,14 @@ import { RootState } from "../../store";
 import { IItem } from "../../types/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import {
+  Appreciate,
+  CheckMarkContainer,
+  Confirmation,
+  InnerContainer,
+  OuterContainer,
+} from "./SuccessfulOrderStyles";
+import { useState } from "react";
 
 const SuccessfulOrder: React.FC = () => {
   const amountOfProducts = useSelector(
@@ -23,38 +31,64 @@ const SuccessfulOrder: React.FC = () => {
     amountOfProducts.hasOwnProperty(item.slug)
   );
 
+  const firstProduct: IItem = filteredProducts[0];
+
   const totalPrice = filteredProducts.reduce((sum: number, item: IItem) => {
     return sum + item.price * amountOfProducts[item.slug];
   }, 0);
 
   const grandTotal = totalPrice + 50;
 
+  const [showOtherProducts, setShowOtherProducts] = useState<boolean>(false);
+
   return (
-    <div>
-      <div>
-        <div>
+    <OuterContainer>
+      <InnerContainer>
+        <CheckMarkContainer>
           <FontAwesomeIcon icon={faCheck} style={{ color: "#ffffff" }} />
-        </div>
-        <h6>THANK YOU FOR YOUR ORDER</h6>
-        <p>You will receive an email confirmation shortly.</p>
+        </CheckMarkContainer>
+        <Appreciate>THANK YOU FOR YOUR ORDER</Appreciate>
+        <Confirmation>
+          You will receive an email confirmation shortly.
+        </Confirmation>
         <div>
           <div>
-            {filteredProducts.map((item: IItem) => (
-              <SummaryProductContainer key={item.id}>
-                <SummaryImg src={item.image.mobile} alt="Product" />
-                <SummaryProductInnerContainer>
-                  <div>
-                    <SummaryProductTitle>{item.name}</SummaryProductTitle>
-                    <SummaryProductPrice>
-                      ${item.price.toLocaleString()}
-                    </SummaryProductPrice>
-                  </div>
-                  <SummaryProductAmount>
-                    x{amountOfProducts[item.slug]}
-                  </SummaryProductAmount>
-                </SummaryProductInnerContainer>
-              </SummaryProductContainer>
-            ))}
+            <SummaryProductContainer>
+              <SummaryImg src={firstProduct.image.mobile} alt="Product" />
+              <SummaryProductInnerContainer>
+                <div>
+                  <SummaryProductTitle>{firstProduct.name}</SummaryProductTitle>
+                  <SummaryProductPrice>
+                    ${firstProduct.price.toLocaleString()}
+                  </SummaryProductPrice>
+                </div>
+                <SummaryProductAmount>
+                  x{amountOfProducts[firstProduct.slug]}
+                </SummaryProductAmount>
+              </SummaryProductInnerContainer>
+            </SummaryProductContainer>
+            <div onClick={() => setShowOtherProducts(!showOtherProducts)}>
+              <p>and 2 other item(s)</p>
+            </div>
+            {showOtherProducts &&
+              filteredProducts
+                .filter((item: IItem) => item !== firstProduct)
+                .map((item: IItem) => (
+                  <SummaryProductContainer key={item.id}>
+                    <SummaryImg src={item.image.mobile} alt="Product" />
+                    <SummaryProductInnerContainer>
+                      <div>
+                        <SummaryProductTitle>{item.name}</SummaryProductTitle>
+                        <SummaryProductPrice>
+                          ${item.price.toLocaleString()}
+                        </SummaryProductPrice>
+                      </div>
+                      <SummaryProductAmount>
+                        x{amountOfProducts[item.slug]}
+                      </SummaryProductAmount>
+                    </SummaryProductInnerContainer>
+                  </SummaryProductContainer>
+                ))}
           </div>
           <div>
             <p>GRAND TOTAL</p>
@@ -62,8 +96,8 @@ const SuccessfulOrder: React.FC = () => {
           </div>
           <ActionBtn>BACK TO HOME</ActionBtn>
         </div>
-      </div>
-    </div>
+      </InnerContainer>
+    </OuterContainer>
   );
 };
 

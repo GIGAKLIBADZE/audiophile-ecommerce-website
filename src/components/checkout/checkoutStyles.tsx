@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const CheckoutOuterContainer = styled.div`
+  position: relative;
+`;
+
 export const CheckoutMainContainer = styled.div`
   width: 87.2%;
   margin-inline: auto;
