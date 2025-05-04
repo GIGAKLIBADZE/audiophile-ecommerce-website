@@ -16,8 +16,11 @@ import {
   Appreciate,
   CheckMarkContainer,
   Confirmation,
+  GrandTotalText,
+  GrandTotalContainer,
   InnerContainer,
   OuterContainer,
+  GrandTotalPrice,
 } from "./SuccessfulOrderStyles";
 import { useState } from "react";
 
@@ -90,12 +93,12 @@ const SuccessfulOrder: React.FC = () => {
                   </SummaryProductContainer>
                 ))}
           </div>
-          <div>
-            <p>GRAND TOTAL</p>
-            <p>${grandTotal.toLocaleString()}</p>
-          </div>
-          <ActionBtn>BACK TO HOME</ActionBtn>
+          <GrandTotalContainer>
+            <GrandTotalText>GRAND TOTAL</GrandTotalText>
+            <GrandTotalPrice>${grandTotal.toLocaleString()}</GrandTotalPrice>
+          </GrandTotalContainer>
         </div>
+        <ActionBtn style={{ marginTop: "2.3rem" }}>BACK TO HOME</ActionBtn>
       </InnerContainer>
     </OuterContainer>
   );

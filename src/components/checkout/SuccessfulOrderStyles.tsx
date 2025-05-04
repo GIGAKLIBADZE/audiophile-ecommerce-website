@@ -48,4 +48,22 @@ export const Confirmation = styled.p`
   margin-top: 1.6rem;
 `;
 
-// export const GrandTotalContainer = styled.div``
+export const GrandTotalContainer = styled.div`
+  padding: 1.5rem 10.5rem 1.9rem 2.4rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: #000;
+`;
+
+export const GrandTotalText = styled(Confirmation)`
+  margin-top: 0;
+  color: #fff;
+`;
+
+export const GrandTotalPrice = styled.p`
+  font-size: 1.8rem;
+  font-weight: bold;
+  line-height: normal;
+  color: #fff;
+  margin-top: 0.8rem;
+`;
